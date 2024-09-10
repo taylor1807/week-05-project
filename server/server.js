@@ -16,12 +16,12 @@ const db = new pg.Pool({
 
 
 app.get("/", function (request, response) {
-    response.json("");
+    response.json("This is the home route! Get out immediately!");
   });
 
-  app.get("", async function (request, response) {
-    const  = await db.query("SELECT * FROM ");
-    response.json(.rows);
+  app.get("/messages", async function (request, response) {
+    const messages = await db.query("SELECT * FROM ");
+    response.json(messages.rows);
   });
 
   app.post("", function (request, response) {
