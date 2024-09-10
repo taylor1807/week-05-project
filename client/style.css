@@ -1,0 +1,275 @@
+body,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  color: #fff;
+  display: flex;
+  padding: 2.5rem 3rem;
+  gap: 3rem;
+  z-index: 1;
+}
+
+header a {
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  gap: 2.3rem;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/*mobile*/
+@media (min-width: 360px) {
+  .burger-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .burger-icon span {
+    background: #333;
+    height: 3px;
+    margin: 4px 0;
+  }
+
+  .overlay-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .overlay-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .overlay-menu ul li {
+    margin: 20px 0;
+  }
+
+  .overlay-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+  }
+
+  .menu-active {
+    display: block;
+  }
+}
+
+/*small Tablets & large phones*/
+@media (min-width: 500px) {
+  .burger-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .burger-icon span {
+    background: #333;
+    height: 3px;
+    margin: 4px 0;
+  }
+
+  .overlay-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .overlay-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .overlay-menu ul li {
+    margin: 20px 0;
+  }
+
+  .overlay-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+  }
+
+  .menu-active {
+    display: block;
+  }
+}
+
+/*tablets & small Laptops BURGER MENU HIDES AFTER THIS QUERY*/
+@media (min-width: 760px) {
+  .burger-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .burger-icon span {
+    background: #333;
+    height: 3px;
+    margin: 4px 0;
+  }
+
+  .overlay-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .overlay-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .overlay-menu ul li {
+    margin: 20px 0;
+  }
+
+  .overlay-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+  }
+
+  .menu-active {
+    display: block;
+  }
+}
+
+/*Laptops*/
+@media (min-width: 1020px) {
+  body,
+  h1,
+  h2 {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  header {
+    position: fixed;
+    color: #fff;
+    display: flex;
+    padding: 2.5rem 3rem;
+    gap: 3rem;
+    z-index: 1;
+  }
+
+  header a {
+    color: #fff;
+  }
+
+  nav {
+    display: flex;
+    gap: 2.3rem;
+    text-transform: uppercase;
+    align-items: center;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+}
+
+/*desktops*/
+@media (min-width: 1280px) {
+  body,
+  h1,
+  h2 {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  header {
+    position: fixed;
+    color: #fff;
+    display: flex;
+    padding: 2.5rem 3rem;
+    gap: 3rem;
+    z-index: 1;
+  }
+
+  header a {
+    color: #fff;
+  }
+
+  nav {
+    display: flex;
+    gap: 2.3rem;
+    text-transform: uppercase;
+    align-items: center;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+}
