@@ -158,6 +158,26 @@ footer {
   .event_locations h2 {
     font-size: 2rem;
   }
+
+  .hamburger_menu {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10; /* Make sure it's above other content */
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger_menu i {
+    color: #fff;
+    font-size: 28px; /* Icon size for mobile */
+    transition: transform 0.3s ease; /* Smooth transition for animations */
+  }
+
+  .hamburger_menu:hover i {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
 }
 
 /* Tablets in landscape mode and larger (min-width: 768px) */
