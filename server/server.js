@@ -9,7 +9,7 @@ app.use(express.json());
 dotenv.config();
 
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
 });
 
 app.get("/", function (request, response) {
