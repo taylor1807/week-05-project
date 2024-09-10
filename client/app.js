@@ -87,11 +87,12 @@ function toggleMenu() {
   const menu = document.getElementById("burger-menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
-// Simulate band websites
+
 const bandWebsites = {
-  1: "https://www.example.com/band1",
-  2: "https://www.example.com/band2",
-  3: "https://www.example.com/band3",
+  1: "https://www.ticketmaster.co.uk/linkin-park-tickets/artist/703831",
+  2: "https://www.ticketmaster.co.uk/janet-jackson-tickets/artist/972908",
+  3: "https://www.ticketmaster.co.uk/dua-lipa-tickets/artist/2179476",
+  4: "https://www.ticketmaster.co.uk/childish-gambino-tickets/artist/1503424",
 };
 
 fetch("http://localhost:8080/bands")
@@ -119,6 +120,7 @@ fetch("http://localhost:8080/bands")
       bandTime.textContent = `Time: ${band.event_time}`;
 
       const visitButton = document.createElement("button");
+      visitButton.classList.add("visitBtn");
       visitButton.textContent = "Visit Site";
       visitButton.onclick = () => {
         window.location.href = bandWebsites[band.id];
