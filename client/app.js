@@ -9,22 +9,39 @@ async function getMessages() {
   const data = await response.json();
   console.log(data);
   messageBoardContainer.innerHTML = "";
+  //create elements in the message container
   data.forEach(function (message) {
     const messageContainer = document.createElement("div");
     messageContainer.classList.add("messageContainer");
+
     const messageInsert = document.createElement("p");
     messageInsert.textContent = `${message.name} wrote: ${message.message}`;
+
     const likeCount = document.createElement("span");
     likeCount.textContent = `Likes: ${message.likes || 0}`;
+
+    const dislikeCount = document.createElement("span");
+    dislikeCount.textContent = `Dislikes: ${message.dislikes || 0}`;
+    //adding a like button
     const likeButton = document.createElement("button");
     likeButton.classList.add("likeBtn");
     likeButton.textContent = "Like";
     likeButton.addEventListener("click", function () {
       handleLike(message.id);
-    }); //append elements to the dom
+    });
+    //adding a dislike button
+    const dislikeButton = document.createElement("button");
+    dislikeButton.classList.add("dislikeBtn");
+    dislikeButton.textContent = "Dislike";
+    dislikeButton.addEventListener("click", function () {
+      handleDislike(message.id);
+    });
+    //append elements to the dom
     messageContainer.appendChild(messageInsert);
     messageContainer.appendChild(likeCount);
     messageContainer.appendChild(likeButton);
+    messageContainer.appendChild(dislikeCount);
+    messageContainer.appendChild(dislikeButton);
     messageBoardContainer.appendChild(messageContainer);
   });
 }
@@ -54,5 +71,19 @@ async function handleLike(messageId) {
   );
   getMessages();
 }
+async function handleDislike(messageId) {
+  const response = await fetch(
+    `http://localhost:8080/messages/${messageId}/like`,
+    {
+      method: "POST",
+    }
+  );
+}
 form.addEventListener("submit", handlePostMessage);
 getMessages();
+
+//add a burger menu
+function toggleMenu() {
+  var menu = document.getElementById("burger-menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
