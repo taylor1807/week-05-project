@@ -17,12 +17,18 @@ app.get("/", function (request, response) {
 });
 
 app.get("/messages", async function (request, response) {
-  const messages = await db.query("SELECT * FROM ");
+  const messages = await db.query("SELECT * FROM messages");
   response.json(messages.rows);
 });
 
-app.post("", function (request, response) {
-  response.json(request.body);
+app.post("/messages", async function (request, response) {
+  const name = request.body.name;
+  const message = request.body.message;
+  const newMessage = await db.query(
+    "INSERT INTO messages (name. message, likes, dislikes) VALUES ($1, $2, $3, $4)",
+    [name, message, 0]
+  );
+  response.json(newMessage.rows[0]);
 });
 
 app.listen(8080, function () {
