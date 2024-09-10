@@ -11,17 +11,16 @@ dotenv.config();
 
 
 const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
 });
 
 
 app.get("/", function (request, response) {
-
     response.json("This is the home route! Get out immediately!");
   });
 
   app.get("/messages", async function (request, response) {
-    const messages = await db.query("SELECT * FROM ");
+    const messages = await db.query("SELECT * FROM messages")
     response.json(messages.rows);
   });
 
