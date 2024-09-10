@@ -84,10 +84,10 @@ getMessages();
 
 //add a burger menu
 function toggleMenu() {
-  var menu = document.getElementById("hamburger-menu");
+  const menu = document.getElementById("burger-menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
-// Simulate band websites (you can get this from the database in a real scenario)
+// Simulate band websites
 const bandWebsites = {
   1: "https://www.example.com/band1",
   2: "https://www.example.com/band2",
