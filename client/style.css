@@ -132,6 +132,94 @@ nav {
   color: #f5f2f1;
 }
 
+/*messageboard*/
+
+#messageBoardContainer {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+  width: 90%;
+  max-width: 350px;
+  max-height: 50vh;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+#messageBoardContainer h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+/* Message List and Items */
+.message_list {
+  max-height: calc(50vh - 50px);
+}
+
+.message_item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #444; /* Slightly lighter background for messages */
+  border-radius: 4px; /* Rounded corners for messages */
+}
+
+.message_item p {
+  margin: 0;
+  font-size: 0.9rem; /* Font size for message text */
+}
+
+/*like and dislike button*/
+button.likeBtn,
+button.dislikeBtn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s;
+  margin-right: 0.5rem; /* Space between buttons */
+}
+
+button.likeBtn i,
+button.dislikeBtn i {
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+/* Like Button */
+button.likeBtn {
+  background-color: #4caf50;
+}
+
+button.likeBtn:hover {
+  background-color: #45a049;
+}
+
+button.likeBtn:active {
+  transform: scale(0.95);
+}
+
+/* Dislike Button */
+button.dislikeBtn {
+  background-color: #f44336;
+}
+
+button.dislikeBtn:hover {
+  background-color: #e53935;
+}
+
+button.dislikeBtn:active {
+  transform: scale(0.95);
+}
+
 /* Footer */
 footer {
   background-color: #1a1a1a;
@@ -161,6 +249,7 @@ footer {
   color: #fff;
   font-size: 24px;
   transition: color 0.3s;
+  left: 50%;
 }
 
 .social_media a:hover {
@@ -245,6 +334,13 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     padding: 0 3rem;
+  }
+
+  #messageBoardContainer {
+    right: 20px;
+    bottom: 20px;
+    width: 350px;
+    max-height: 60vh;
   }
 }
 
