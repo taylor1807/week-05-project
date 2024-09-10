@@ -125,7 +125,7 @@ fetch("http://localhost:8080/bands")
       visitButton.onclick = () => {
         window.location.href = bandWebsites[band.id];
       };
-
+      //add elements to the dom
       bandDiv.appendChild(bandName);
       bandDiv.appendChild(bandLocation);
       bandDiv.appendChild(bandVenue);
