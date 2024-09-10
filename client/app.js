@@ -84,6 +84,6 @@ getMessages();
 
 //add a burger menu
 function toggleMenu() {
-  var menu = document.getElementById("burger-menu");
+  var menu = document.getElementById("hamburger-menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }

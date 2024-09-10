@@ -13,22 +13,16 @@ const db = new pg.Pool({
 });
 
 app.get("/", function (request, response) {
-  response.json("");
+  response.json("This is the home route! Get out immediately!");
 });
 
 app.get("/messages", async function (request, response) {
-  const messages = await db.query("SELECT * FROM messages");
+  const messages = await db.query("SELECT * FROM ");
   response.json(messages.rows);
 });
 
-app.post("/messages", async function (request, response) {
-  const name = request.body.name;
-  const message = request.body.message;
-  const newMessage = await db.query(
-    "INSERT INTO messages (name. message, likes, dislikes) VALUES ($1, $2, $3, $4)",
-    [name, message, 0]
-  );
-  response.json(newMessage.rows[0]);
+app.post("", function (request, response) {
+  response.json(request.body);
 });
 
 app.listen(8080, function () {
