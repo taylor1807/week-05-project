@@ -16,6 +16,7 @@ const db = new pg.Pool({
 
 
 app.get("/", function (request, response) {
+
     response.json("This is the home route! Get out immediately!");
   });
 

@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script type="module" src="style.js" defer></script>
-    <title>VibeLine</title>
-</head>
-<body>
-    <header>
-        <div class="header_container">
-            <img src="#" alt="Logo Image" class="logo">
-            
-            <!-- Hamburger Icon -->
-            <div class="hamburger_menu" id="hamburger_menu">
-                <i class="fas fa_bars"></i>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-            <!-- Navigation Links (Desktop) -->
-            <nav class="nav_bar" id="nav_bar">
-                <a href="#">HOME</a>
-                <a href="#">Events</a>
-                <a href="#">About</a>
-                <a href="#">Preferences</a>
-            </nav>
+    <script type="module" src="app.js" defer></script>
+    <title>VibeLine</title>
+  </head>
+  <body>
+    <header>
+      <div class="header_container">
+        <img src="./Assets/Vibelibne-Logo.webp" alt="Logo Image" class="logo" />
+
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger_menu" id="hamburger_menu">
+          <i class="fas fa_bars"></i>
         </div>
+
+        <!-- Navigation Links (Desktop) -->
+        <nav class="nav_bar" id="nav_bar">
+
+          <a href="#home">HOME</a>
+          <a href="#events">Events</a>
+          <a href="#about">About</a>
+          <a href="#preferences">Preferences</a>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <!-- Welcome Section -->
-        <section class="welcome">
-            <h1>Welcome to VibeLine</h1>
-            <p>Join us for amazing events</p>
-        </section>
+      <!-- Welcome Section -->
+      <section class="welcome">
+        <h1>Welcome to VibeLine</h1>
+        <p>Join us for amazing events</p>
+      </section>
 
-        <!-- Event Locations Section -->
-        <section class="event_locations">
-            <h2>Upcoming Events</h2>
-        </section>
+      <!-- Event Locations Section -->
+      <section class="event_locations">
+        <h2>Upcoming Events</h2>
+      </section>
     </main>
 
     <footer>
-        <div class="footer_container">
-            <img src="#" alt="Logo Image" class="logo">
-            <!-- Copyright Section -->
-            <div class="copy_right">
-                <p>VibeLine &copy; 2024</p>
-            </div>
-            
-            <!-- Social Media Icons -->
-            <div class="social_media">
-                <a href="https://www.facebook.com" class="media-icon"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://www.instagram.com" class="media-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com" class="media-icon"><i class="fab fa-youtube-square"></i></a>
-            </div>
+      <div class="footer_container">
+
+        <img src="./Assets/Vibelibne-Logo.webp" alt="Logo Image" class="logo" />
+
+      
+
+        <!-- Copyright Section -->
+        <div class="copy_right">
+          <p>VibeLine &copy; 2024</p>
         </div>
+
+
+
+        <div id="messageBoardContainer"></div>
+        <!-- Social Media Icons -->
+        <div class="social_media">
+          <a href="https://www.facebook.com" class="media-icon"
+            ><i class="fab fa-facebook-square"></i
+          ></a>
+          <a href="https://www.instagram.com" class="media-icon"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.youtube.com" class="media-icon"
+            ><i class="fab fa-youtube-square"></i
+          ></a>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
