@@ -84,6 +84,53 @@ getMessages();
 
 //add a burger menu
 function toggleMenu() {
-  var menu = document.getElementById("hamburger-menu");
+  const menu = document.getElementById("burger-menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
+// Simulate band websites
+const bandWebsites = {
+  1: "https://www.example.com/band1",
+  2: "https://www.example.com/band2",
+  3: "https://www.example.com/band3",
+};
+
+fetch("http://localhost:8080/bands")
+  .then((response) => response.json())
+  .then((data) => {
+    const bandInfoDiv = document.getElementById("band-info");
+
+    data.forEach((band) => {
+      const bandDiv = document.createElement("div");
+      bandDiv.classList.add("band-container");
+
+      const bandName = document.createElement("h2");
+      bandName.textContent = band.band_name;
+
+      const bandLocation = document.createElement("p");
+      bandLocation.textContent = `Location: ${band.location}`;
+
+      const bandVenue = document.createElement("p");
+      bandVenue.textContent = `Venue: ${band.venue_name}`;
+
+      const bandDate = document.createElement("p");
+      bandDate.textContent = `Date: ${band.event_date}`;
+
+      const bandTime = document.createElement("p");
+      bandTime.textContent = `Time: ${band.event_time}`;
+
+      const visitButton = document.createElement("button");
+      visitButton.textContent = "Visit Site";
+      visitButton.onclick = () => {
+        window.location.href = bandWebsites[band.id];
+      };
+
+      bandDiv.appendChild(bandName);
+      bandDiv.appendChild(bandLocation);
+      bandDiv.appendChild(bandVenue);
+      bandDiv.appendChild(bandDate);
+      bandDiv.appendChild(bandTime);
+      bandDiv.appendChild(visitButton);
+
+      bandInfoDiv.appendChild(bandDiv);
+    });
+  });
