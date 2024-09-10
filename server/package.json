@@ -16,6 +16,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {},
-  "description": "",
-  "type": "module"
+  "type": "module",
+  "description": ""
 }
