@@ -43,9 +43,9 @@ app.post("/messages/:id/like", async function (request, response) {
   }
 });
 
-app.get("/bands", (req, res) => {
-  res.json(bands);
-});
+// app.get("/bands", (req, res) => {
+//   res.json(bands);
+// });
 
 app.listen(8080, function () {
   console.log("App running on port 8080");

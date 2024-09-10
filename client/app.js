@@ -1,5 +1,28 @@
 console.log("test");
 
+//! array of urls/alts for gallerylocations:
+
+let gallerylocations = [
+  {
+      url: 'client/Assets/AOchildish.webp',
+      alt: 'This is an image of the AO arena in Manchester, where Childish Gambino will be playing'
+  },
+
+  {
+      url: 'client/Assets/cooplivejj.webp',
+      alt: 'This is an image of the coop live arena in Manchester, where Janet Jackson will be playing'
+  },
+
+  {
+      url: 'client/Assets/wembleydua.webp',
+      alt: 'This is an image of the Wembley Stadium in London, where Dua Lipa will be playing',
+  },
+  {
+      url: 'client/Assets/o2londonlinkinpark.webp',
+      alt: 'This is an image of the O2 area in London, where Linkin Park will be playing',
+  },
+]
+
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
 
