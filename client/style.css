@@ -173,6 +173,7 @@ nav {
 /* About Us Section Styles */
 .about {
   position: relative;
+
   min-height: 100vh; 
   background: url('/Assets/Vibelibne-Logo.webp') no-repeat center center;
   background-size: cover; 
@@ -572,7 +573,7 @@ footer {
     right: 10px;
     transform: none;
     width: 70%;
-    max-width: 300px; /* Further increased max-width for desktops */
+    max-width: 350px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
   }
 }
@@ -597,7 +598,7 @@ footer {
 
   #messageBoardContainer {
     width: 70%;
-    max-width: 300px; /* Further increased max-width for desktops */
+    max-width: 400px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
   }
 }
