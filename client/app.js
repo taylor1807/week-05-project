@@ -4,24 +4,74 @@ console.log("test");
 
 let gallerylocations = [
   {
-    url: "client/Assets/AOchildish.webp",
+    url: "Assets/AOchildish.webp",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
+    srcset: "",
   },
 
   {
-    url: "client/Assets/cooplivejj.webp",
+    url: "Assets/cooplivejj.webp",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
+    srcset: "",
   },
 
   {
-    url: "client/Assets/wembleydua.webp",
+    url: "Assets/wembleydua.webp",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
+    srcset: "",
   },
   {
-    url: "client/Assets/o2londonlinkinpark.webp",
+    url: "Assets/o2londonlinkinpark.webp",
     alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
+    srcset: "",
   },
 ];
+
+//!function for gallerylocations images:
+function addThumbnails() {
+  gallerylocations.forEach( (image) => {
+    let imageElement = document.createElement("img");
+    imageElement.src = image.url;
+    imageElement.alt = image.alt;
+    imageElement.srcset = image.srcset;
+    imageElement.addEventListener('click', function() {
+      console.log(`Clicked on ${image.alt}`)
+    });
+  }
+)}
+//!functions for next and back buttons for gallerylocations images:
+const back = document.getElementById("back");
+const next = document.getElementById("next");
+
+function nextImage() {
+  if (currentIndex < images.length - 1) {
+    currentIndex += 1;
+  } else {
+    currentIndex = 0
+    }
+  addFullSizeImage(images[currentIndex]);
+}
+
+function backImage() {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = images.length -1;
+  }
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    previousImage();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowRight") {
+    nextImage();
+  }
+});
+
 
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
