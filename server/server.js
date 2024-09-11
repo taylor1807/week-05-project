@@ -45,14 +45,28 @@ app.post("/messages/:id/dislike", async function (request, response) {
   const messageId = request.params.id;
   {
     const updatedMessage = await db.query(
-      "UPDATE messages SET dislikes = dislikes + 1 where id = $1",
+      "UPDATE messages SET dislikes = dislikes + 1 where id = $2",
       [messageId]
     );
     response.json(updatedMessage.rows[0]);
   }
 });
 
+app.delete("/messages/:id", async function (request, response) {
+  const messageId = request.params.id;
+  console.log("Deleting message with ID:", messageId);
 
+  const deleteResult = await db.query("DELETE FROM messages WHERE id = $1", [
+    messageId,
+  ]);
+
+  console.log("Delete result:", deleteResult);
+
+  if (deleteResult.rowCount === 0) {
+    return response.status(404).json({ error: "message not found" });
+  }
+  response.json({ success: true, message: "Message deleted" });
+});
 app.get("/band_info", async function (request, response) {
   const band_info = await db.query("SELECT * FROM band_info");
   response.json(band_info.rows);
