@@ -52,6 +52,11 @@ app.post("/messages/:id/dislike", async function (request, response) {
   }
 });
 
+app.get("/band_info", async function (request, response) {
+  const band_info = await db.query("SELECT * FROM band_info");
+  response.json(band_info.rows);
+});
+
 app.listen(8080, function () {
   console.log("App running on port 8080");
 });
