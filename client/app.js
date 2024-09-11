@@ -23,8 +23,7 @@ function addThumbnails() {
 
 //!function for gallerylocations images:
 let currentIndex = 0;
-
-const thumbnailCont = document.getElementById("thumbnailCont")
+const thumbnailBar = document.getElementById("thumbnailBar");
 
 function addThumbnails() {
   gallerylocations.forEach((image) => {
@@ -36,12 +35,10 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
+  })
+}
 
-    thumbnailCont.appendChild(imageElement);
-  }
-)}
-addThumbnails()
-
+addThumbnails();
 
 let currentIndex = 0;
 const images = galleryLocations;
@@ -52,8 +49,6 @@ function nextImage() {
   } else {
     currentIndex = 0;
   }
-    currentIndex = 0;
-  }
   addFullSizeImage(images[currentIndex]);
 }
 
@@ -61,7 +56,6 @@ function backImage() {
   if (currentIndex > 0) {
     currentIndex--;
   } else {
-    currentIndex = images.length - 1;
     currentIndex = images.length - 1;
   }
   addFullSizeImage(images[currentIndex]);
@@ -194,18 +188,7 @@ function formatDate(dateString) {
     day: 'numeric',
   });
 }
-
-
-function formatTime(timeString) {
-  const time = new Date(`1970-01-01T${timeString}`);
-  return time.toLocaleTimeString('en-GB', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-  });
-}
-
-// Added displayBandInfo function with formatted date/time - COMMIT
+//adding elements from db2 to the dom
 async function fetchBandInfo() {
   const response = await fetch("http://localhost:8080/band_info");
   const data = await response.json();
@@ -215,45 +198,32 @@ async function fetchBandInfo() {
 function displayBandInfo(bands) {
   const bandContainer = document.getElementById("band-info");
   bandContainer.innerHTML = "";
-
   bands.forEach((band) => {
     const bandDiv = document.createElement("div");
     bandDiv.classList.add("bandDiv");
-
     const bandName = document.createElement("h2");
     bandName.textContent = band.band_name;
-
     const location = document.createElement("p");
     location.textContent = `Location: ${band.location}`;
-
     const venueName = document.createElement("p");
     venueName.textContent = `Venue: ${band.venue_name}`;
-
-    // Format Date and Time
-    const eventDate = formatDate(band.event_date);
-    const eventTime = formatTime(band.event_time);
-
-    const eventDateElem = document.createElement("p");
-    eventDateElem.textContent = `Date: ${eventDate}`;
-
-    const eventTimeElem = document.createElement("p");
-    eventTimeElem.textContent = `Time: ${eventTime}`;
-
+    const eventDate = document.createElement("p");
+    eventDate.textContent = `Date: ${band.event_date}`;
+    const eventTime = document.createElement("p");
+    eventTime.textContent = `Time: ${band.event_time}`;
     const websiteLink = document.createElement("a");
     websiteLink.href = band.website_url;
     websiteLink.target = "_blank";
     websiteLink.textContent = "Visit Website";
 
-    bandDiv.appendChild(bandName);
-    bandDiv.appendChild(location);
-    bandDiv.appendChild(venueName);
+    bandDiv.appendChild(eventDate);
+    bandDiv.appendChild(eventTime);
+    bandDiv.appendChild(websiteLink);
     bandDiv.appendChild(eventDateElem);
     bandDiv.appendChild(eventTimeElem);
     bandDiv.appendChild(websiteLink);
 
-
     bandContainer.appendChild(bandDiv);
   });
 }
-
 window.onload = fetchBandInfo;
