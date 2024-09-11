@@ -30,6 +30,7 @@ header {
   border-radius: 20px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+  z-index: 100;
 }
 
 /*BURGER MENU*/
@@ -47,6 +48,7 @@ header {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .line {
@@ -60,6 +62,7 @@ header {
   list-style: none;
   display: flex;
   gap: 20px;
+  overflow-x: auto;
 }
 .nav-links li {
   margin: 0 15px;
@@ -74,6 +77,22 @@ header {
 .nav-links a:hover {
   background-color: #555;
   border-radius: 5px;
+}
+
+.nav-links.active {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*BURGER MENU*/
@@ -113,19 +132,31 @@ nav {
 /* Welcome Section */
 .welcome {
   text-align: center;
-  margin-top: 80px; /* Extra space due to fixed header */
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #f44336, #2196f3);
+  width: 100%;
+  padding: 20px;
+}
+
+.welcomeimg {
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.center {
+  position: relative;
+  margin-top: 20px;
+  padding: 0 10px;
 }
 
 .welcome h1 {
-  font-size: 2rem; /* Mobile size */
-  color: #fff;
-}
-
-.welcome p {
-  font-size: 1.1rem;
-  margin-top: 10px;
+  opacity: 0.8;
+  color: #dc2f2f;
+  font-size: 2rem;
 }
 
 /* Event Locations */
@@ -197,14 +228,14 @@ nav {
 
 #messageBoardContainer {
   position: fixed;
-  bottom: 100px;
-  right: 10px;
-  width: 90%;
-  max-width: 350px;
-  max-height: 50vh;
+  bottom: 10px; /* Adjusted for better visibility */
+  left: 50px;
+  width: 80%; /* Smaller width for mobile screens */
+  max-width: 300px; /* Reduced max-width for mobile screens */
+  max-height: 40vh; /* Reduced max-height for mobile screens */
   background-color: #333;
   color: #fff;
-  padding: 1rem;
+  padding: 0.8rem; /* Reduced padding */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
@@ -241,7 +272,6 @@ nav {
 .message_form {
   width: 100%;
   max-width: 350px;
-  background-color: #222;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -270,7 +300,7 @@ nav {
 }
 
 .input-row label {
-  color: #ddd;
+  color: #f0f0f0;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
@@ -406,12 +436,12 @@ footer {
     width: 90px; /* Slightly larger logo */
   }
 
-  .welcome h1 {
-    font-size: 2.5rem;
+  .welcome {
+    padding: 40px 20px;
   }
 
-  .welcome p {
-    font-size: 1.25rem;
+  .welcome h1 {
+    font-size: 2.5rem;
   }
 
   .event_locations h2 {
@@ -487,10 +517,6 @@ footer {
     font-size: 3rem;
   }
 
-  .welcome p {
-    font-size: 1.4rem;
-  }
-
   .footer_container {
     flex-direction: row;
     justify-content: space-between;
@@ -498,10 +524,10 @@ footer {
   }
 
   #messageBoardContainer {
-    right: 20px;
-    bottom: 20px;
-    width: 350px;
-    max-height: 60vh;
+    width: 75%;
+    max-width: 300px; /* Increased max-width for tablets and larger devices */
+    bottom: 20px; /* Adjusted bottom spacing */
+    max-height: 50vh;
   }
 }
 
@@ -523,16 +549,21 @@ footer {
     font-size: 3.5rem;
   }
 
-  .welcome p {
-    font-size: 1.5rem;
-  }
-
   .event_locations h2 {
     font-size: 2.5rem;
   }
 
   .burger {
     display: none;
+  }
+
+  #messageBoardContainer {
+    left: auto;
+    right: 10px;
+    transform: none;
+    width: 70%;
+    max-width: 300px; /* Further increased max-width for desktops */
+    bottom: 30px; /* Adjusted bottom spacing */
   }
 }
 
@@ -546,10 +577,6 @@ footer {
     font-size: 4rem;
   }
 
-  .welcome p {
-    font-size: 1.75rem;
-  }
-
   .event_locations h2 {
     font-size: 3rem;
   }
@@ -557,5 +584,10 @@ footer {
   .burger {
     display: none;
   }
+
+  #messageBoardContainer {
+    width: 70%;
+    max-width: 300px; /* Further increased max-width for desktops */
+    bottom: 30px; /* Adjusted bottom spacing */
+  }
 }
-/* General navbar styling */
