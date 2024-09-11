@@ -173,13 +173,14 @@ nav {
 /* About Us Section Styles */
 .about {
   position: relative;
-  min-height: 100vh; 
-  background: url('/home/morahim/tech-educators-bootcamps/week05/project/week-05-project/client/Assets/Vibelibne-Logo.webp') no-repeat center center;
-  background-size: cover; 
+  min-height: 100vh;
+  background: url("/home/morahim/tech-educators-bootcamps/week05/project/week-05-project/client/Assets/Vibelibne-Logo.webp")
+    no-repeat center center;
+  background-size: cover;
   color: #fff;
   text-align: left;
   display: flex;
-  align-items:end;
+  align-items: end;
 }
 
 .about-content {
@@ -194,8 +195,7 @@ nav {
 }
 
 .about p {
-  font-size: 18px
-
+  font-size: 18px;
 }
 
 .about .intro {
@@ -234,24 +234,24 @@ nav {
   width: 100%;
 }
 
-/*messageboard*/
+messageboard
 
 /* #messageBoardContainer {
   position: fixed;
   bottom: 10px; /* Adjusted for better visibility */
-  left: 50px;
+  /* left: 50px;
   width: 80%; /* Smaller width for mobile screens */
-  max-width: 300px; /* Reduced max-width for mobile screens */
-  max-height: 40vh; /* Reduced max-height for mobile screens */
-  background-color: #333;
+  /* max-width: 300px; Reduced max-width for mobile screens */
+  /* max-height: 40vh; Reduced max-height for mobile screens */ 
+  /* background-color: #333;
   color: #fff;
   padding: 0.8rem; /* Reduced padding */
-  border-radius: 8px;
+  /* border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   z-index: 1000;
   font-family: "Poppins", sans-serif;
-} */
+} */ 
 
 #messageBoardContainer h3 {
   margin: 0 0 1rem 0;
