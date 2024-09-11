@@ -1,6 +1,7 @@
-console.log("test");
+console.log('test')
 
 // Array of gallery locations
+//!_______________________________________________________________________________________________________________________________
 let galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
@@ -26,64 +27,45 @@ let galleryLocations = [
   },
 ];
 
-
-function formatDateTime(dateString, timeString) {
-  const dateTime = new Date(dateString + 'T' + timeString);
-  const formattedDate = dateTime.toLocaleDateString();
-  const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  return { formattedDate, formattedTime };
-}
-
-function addThumbnails() {
-  const thumbnailBar = document.getElementById("thumbnailBar");
-  if (!thumbnailBar) {
-    console.error("Thumbnail bar element not found");
-    return;
-  }
-  galleryLocations.forEach((image) => {
-
 //!function for gallerylocations images:
 let currentIndex = 0;
-const thumbnailBar = document.getElementById("thumbnailBar");
+const thumbnailCont = document.getElementById("thumbnailCont")
 
 function addThumbnails() {
-  gallerylocations.forEach((image) => {
-
-    let imageElement = document.createElement("img");
-    imageElement.src = image.url;
-    imageElement.alt = image.alt;
-    imageElement.srcset = image.srcset;
-    imageElement.addEventListener("click", function () {
-      console.log(`Clicked on ${image.alt}`);
+    galleryLocations.forEach((image) => {
+        let imageElement = document.createElement("img");
+        imageElement.src = image.url;
+        imageElement.alt = image.alt;
+        imageElement.srcset = image.srcset;
+        imageElement.addEventListener('click', function() {
+        console.log(`Clicked on ${image.alt}`)
     });
-  })
-}
+    thumbnailCont.appendChild(imageElement);
+    }
+)}
 
-addThumbnails();
-
-let currentIndex = 0;
-const images = galleryLocations;
+addThumbnails()
 
 function nextImage() {
-  if (currentIndex < images.length - 1) {
+    if (currentIndex < images.length - 1) {
     currentIndex += 1;
-  } else {
-    currentIndex = 0;
-  }
-  addFullSizeImage(images[currentIndex]);
+    } else {
+    currentIndex = 0
+    }
+    addFullSizeImage(images[currentIndex]);
 }
 
 function backImage() {
-  if (currentIndex > 0) {
+    if (currentIndex > 0) {
     currentIndex--;
-  } else {
-    currentIndex = images.length - 1;
-  }
-  addFullSizeImage(images[currentIndex]);
+    } else {
+    currentIndex = images.length -1;
+    }
 }
 
-document.getElementById("back")?.addEventListener("click", backImage);
-document.getElementById("next")?.addEventListener("click", nextImage);
+  //!function for next and back buttons for gallerylocations images:
+  document.getElementById("back")?.addEventListener("click", backImage);
+  document.getElementById("next")?.addEventListener("click", nextImage);
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
@@ -92,6 +74,21 @@ document.addEventListener("keydown", function (event) {
     nextImage();
   }
 });
+
+
+//!_____________________________________________________________________________________________________
+
+
+function formatDateTime(dateString, timeString) {
+  const dateTime = new Date(dateString + 'T' + timeString);
+  const formattedDate = dateTime.toLocaleDateString();
+  const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return { formattedDate, formattedTime };
+}
+
+formatDateTime()
+
+
 
 function addFullSizeImage(image) {
   // Implement adding full-size image functionality here
