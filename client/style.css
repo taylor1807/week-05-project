@@ -235,24 +235,23 @@ nav {
   width: 100%;
 }
 
-messageboard #messageBoardContainer {
-  position: fixed;
-  bottom: 10px;
-}
-/* Adjusted for better visibility */
-/* left: 50px;
-  width: 80%; /* Smaller width for mobile screens */
-/* max-width: 300px; Reduced max-width for mobile screens */
-/* max-height: 40vh; Reduced max-height for mobile screens */
-/* background-color: #333;
-  color: #fff;
-  padding: 0.8rem; /* Reduced padding */
-/* border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  z-index: 1000;
-  font-family: "Poppins", sans-serif;
+/* Messageboard: */
 
+#messageBoardContainer {
+    position: fixed;
+    bottom: 10px;
+    left: 50px;
+    width: 80%; /* Smaller width for mobile screens */
+    max-width: 300px;
+    max-height: 40vh; 
+    background-color: #333;
+    color: #fff;
+    padding: 0.8rem; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 1000;
+    font-family: "Poppins", sans-serif;
 }
 
 #messageBoardContainer h3 {
@@ -260,7 +259,7 @@ messageboard #messageBoardContainer {
   font-size: 1.2rem;
   border-bottom: 1px solid #444;
   padding-bottom: 0.5rem;
-}
+} */
 
 /* Message List and Items */
 .message_list {
