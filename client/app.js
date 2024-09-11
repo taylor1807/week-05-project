@@ -2,34 +2,38 @@ console.log("test");
 
 //! array of urls/alts for gallerylocations:
 
-let gallerylocations = [
+let galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
+    srcset: "Assets/AOchildish-390.webp",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
-    srcset: "",
   },
 
   {
     url: "Assets/cooplivejj.webp",
+    srcset: "Assets/cooplivejj-390.webp",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
-    srcset: "",
   },
 
   {
     url: "Assets/wembleydua.webp",
+    srcset: "Assets/wembleydua-390.webp",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
-    srcset: "",
   },
+
   {
     url: "Assets/o2londonlinkinpark.webp",
+    srcset: "Assets/o2londonlinkinpark-390.webp",
     alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
-    srcset: "",
   },
 ];
 
 //!function for gallerylocations images:
+let currentIndex = 0;
+const thumbnailBar = document.getElementById("thumbnailBar")
+
 function addThumbnails() {
-  gallerylocations.forEach( (image) => {
+  galleryLocations.forEach( (image) => {
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
     imageElement.alt = image.alt;

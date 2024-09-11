@@ -139,6 +139,20 @@ nav {
   color: #f5f2f1;
 }
 
+/* gallery locations */
+.galleryLocations {
+  display: flex;
+  position: absolute;
+  height: 20vh;
+  width: 100%;
+}
+
+.galleryLocations #thumbnailBar {
+  position: relative;
+  height: 10vh;
+  width: 100%;
+}
+
 /*messageboard*/
 
 #messageBoardContainer {
