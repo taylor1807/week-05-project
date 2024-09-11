@@ -280,7 +280,7 @@ nav {
 
 /*Message Form*/
 
-.message_form {
+#messageForm {
   width: 100%;
   max-width: 350px;
   padding: 1rem;
