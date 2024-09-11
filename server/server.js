@@ -25,16 +25,14 @@ app.post("/messages", async function (request, response) {
   const name = request.body.name;
   const message = request.body.message;
   const newMessage = await db.query(
-    "INSERT INTO messages (name, message, likes, dislikes) VALUES ($1, $2, $3, $4)",
-
-    [name, message, 0, 0]
-
+    "INSERT INTO messages (name, message, likes, dislikes) VALUES ($1, $2, $3, $4)"[
+      (name, message, 0, 0)
+    ]
   );
   response.json(newMessage.rows[0]);
 });
 app.post("/messages/:id/like", async function (request, response) {
-
-  const messageId = request.params.messageId;
+  const messageId = request.params.id;
   {
     const updatedMessage = await db.query(
       "UPDATE messages SET likes = likes + 1 where id = $1",
@@ -54,9 +52,6 @@ app.post("/messages/:id/dislike", async function (request, response) {
   }
 });
 
-app.get("/bands", (req, res) => {
-  res.json(bands);
-});
 
 app.listen(8080, function () {
   console.log("App running on port 8080");

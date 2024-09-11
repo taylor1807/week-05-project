@@ -1,5 +1,28 @@
 console.log("test");
 
+//! array of urls/alts for gallerylocations:
+
+let gallerylocations = [
+  {
+    url: "client/Assets/AOchildish.webp",
+    alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
+  },
+
+  {
+    url: "client/Assets/cooplivejj.webp",
+    alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
+  },
+
+  {
+    url: "client/Assets/wembleydua.webp",
+    alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
+  },
+  {
+    url: "client/Assets/o2londonlinkinpark.webp",
+    alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
+  },
+];
+
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
 
@@ -84,8 +107,8 @@ getMessages();
 
 //add a burger menu
 function toggleMenu() {
-  const menu = document.getElementById("burger-menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  const menu = document.getElementById("nav-links");
+  menu.classList.toggle("active");
 }
 
 const bandWebsites = {
@@ -125,7 +148,7 @@ fetch("http://localhost:8080/bands")
       visitButton.onclick = () => {
         window.location.href = bandWebsites[band.id];
       };
-
+      //add elements to the dom
       bandDiv.appendChild(bandName);
       bandDiv.appendChild(bandLocation);
       bandDiv.appendChild(bandVenue);
