@@ -14,7 +14,6 @@ let galleryLocations = [
     srcset: "Assets/cooplivejj-390.webp",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
   },
-
   {
     url: "Assets/wembleydua.webp",
     srcset: "Assets/wembleydua-390.webp",
@@ -30,19 +29,22 @@ let galleryLocations = [
 
 //!function for gallerylocations images:
 let currentIndex = 0;
-const thumbnailBar = document.getElementById("thumbnailBar")
+const thumbnailBar = document.getElementById("thumbnailBar");
 
 function addThumbnails() {
-  galleryLocations.forEach( (image) => {
+  galleryLocations.forEach((image) => {
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
     imageElement.alt = image.alt;
     imageElement.srcset = image.srcset;
-    imageElement.addEventListener('click', function() {
-      console.log(`Clicked on ${image.alt}`)
+    imageElement.addEventListener("click", function () {
+      console.log(`Clicked on ${image.alt}`);
     });
-  }
-)}
+  });
+}
+
+addThumbnails();
+
 //!functions for next and back buttons for gallerylocations images:
 const back = document.getElementById("back");
 const next = document.getElementById("next");
@@ -51,8 +53,8 @@ function nextImage() {
   if (currentIndex < images.length - 1) {
     currentIndex += 1;
   } else {
-    currentIndex = 0
-    }
+    currentIndex = 0;
+  }
   addFullSizeImage(images[currentIndex]);
 }
 
@@ -60,7 +62,7 @@ function backImage() {
   if (currentIndex > 0) {
     currentIndex--;
   } else {
-    currentIndex = images.length -1;
+    currentIndex = images.length - 1;
   }
 }
 
@@ -75,7 +77,6 @@ document.addEventListener("keydown", function (event) {
     nextImage();
   }
 });
-
 
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
@@ -165,51 +166,41 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 
-const bandWebsites = {
-  1: "https://www.ticketmaster.co.uk/linkin-park-tickets/artist/703831",
-  2: "https://www.ticketmaster.co.uk/janet-jackson-tickets/artist/972908",
-  3: "https://www.ticketmaster.co.uk/dua-lipa-tickets/artist/2179476",
-  4: "https://www.ticketmaster.co.uk/childish-gambino-tickets/artist/1503424",
-};
+async function fetchBandInfo() {
+  const response = await fetch("http://localhost:8080/band_info");
+  const data = await response.json();
+  displayBandInfo(data);
+}
 
-fetch("http://localhost:8080/bands")
-  .then((response) => response.json())
-  .then((data) => {
-    const bandInfoDiv = document.getElementById("band-info");
+function displayBandInfo(bands) {
+  const bandContainer = document.getElementById("band-info");
+  bandContainer.innerHTML = "";
+  bands.forEach((band) => {
+    const bandDiv = document.createElement("div");
+    bandDiv.classList.add("bandDiv");
+    const bandName = document.createElement("h2");
+    bandName.textContent = band.band_name;
+    const location = document.createElement("p");
+    location.textContent = `Location: ${band.location}`;
+    const venueName = document.createElement("p");
+    venueName.textContent = `Venue: ${band.venue_name}`;
+    const eventDate = document.createElement("p");
+    eventDate.textContent = `Date: ${band.event_date}`;
+    const eventTime = document.createElement("p");
+    eventTime.textContent = `Time: ${band.event_time}`;
+    const websiteLink = document.createElement("a");
+    websiteLink.href = band.website_url;
+    websiteLink.target = "_blank";
+    websiteLink.textContent = "Visit Website";
 
-    data.forEach((band) => {
-      const bandDiv = document.createElement("div");
-      bandDiv.classList.add("band-container");
+    bandDiv.appendChild(bandName);
+    bandDiv.appendChild(location);
+    bandDiv.appendChild(venueName);
+    bandDiv.appendChild(eventDate);
+    bandDiv.appendChild(eventTime);
+    bandDiv.appendChild(websiteLink);
 
-      const bandName = document.createElement("h2");
-      bandName.textContent = band.band_name;
-
-      const bandLocation = document.createElement("p");
-      bandLocation.textContent = `Location: ${band.location}`;
-
-      const bandVenue = document.createElement("p");
-      bandVenue.textContent = `Venue: ${band.venue_name}`;
-
-      const bandDate = document.createElement("p");
-      bandDate.textContent = `Date: ${band.event_date}`;
-
-      const bandTime = document.createElement("p");
-      bandTime.textContent = `Time: ${band.event_time}`;
-
-      const visitButton = document.createElement("button");
-      visitButton.classList.add("visitBtn");
-      visitButton.textContent = "Visit Site";
-      visitButton.onclick = () => {
-        window.location.href = bandWebsites[band.id];
-      };
-      //add elements to the dom
-      bandDiv.appendChild(bandName);
-      bandDiv.appendChild(bandLocation);
-      bandDiv.appendChild(bandVenue);
-      bandDiv.appendChild(bandDate);
-      bandDiv.appendChild(bandTime);
-      bandDiv.appendChild(visitButton);
-
-      bandInfoDiv.appendChild(bandDiv);
-    });
+    bandContainer.appendChild(bandDiv);
   });
+}
+window.onload = fetchBandInfo;
