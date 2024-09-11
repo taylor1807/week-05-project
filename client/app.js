@@ -5,6 +5,7 @@ let galleryLocations = [
   // Your gallery items here
 ];
 
+
 function formatDateTime(dateString, timeString) {
   const dateTime = new Date(dateString + 'T' + timeString);
   const formattedDate = dateTime.toLocaleDateString();
@@ -19,6 +20,15 @@ function addThumbnails() {
     return;
   }
   galleryLocations.forEach((image) => {
+
+//!function for gallerylocations images:
+let currentIndex = 0;
+
+const thumbnailCont = document.getElementById("thumbnailCont")
+
+function addThumbnails() {
+  gallerylocations.forEach((image) => {
+
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
     imageElement.alt = image.alt;
@@ -26,11 +36,12 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
-    thumbnailBar.appendChild(imageElement);
-  });
-}
 
-addThumbnails();
+    thumbnailCont.appendChild(imageElement);
+  }
+)}
+addThumbnails()
+
 
 let currentIndex = 0;
 const images = galleryLocations;
@@ -41,6 +52,8 @@ function nextImage() {
   } else {
     currentIndex = 0;
   }
+    currentIndex = 0;
+  }
   addFullSizeImage(images[currentIndex]);
 }
 
@@ -48,6 +61,7 @@ function backImage() {
   if (currentIndex > 0) {
     currentIndex--;
   } else {
+    currentIndex = images.length - 1;
     currentIndex = images.length - 1;
   }
   addFullSizeImage(images[currentIndex]);
@@ -181,6 +195,7 @@ function formatDate(dateString) {
   });
 }
 
+
 function formatTime(timeString) {
   const time = new Date(`1970-01-01T${timeString}`);
   return time.toLocaleTimeString('en-GB', {
@@ -235,6 +250,7 @@ function displayBandInfo(bands) {
     bandDiv.appendChild(eventDateElem);
     bandDiv.appendChild(eventTimeElem);
     bandDiv.appendChild(websiteLink);
+
 
     bandContainer.appendChild(bandDiv);
   });
