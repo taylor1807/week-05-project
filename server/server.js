@@ -65,7 +65,7 @@ app.delete("/messages/:id", async function (request, response) {
   if (deleteResult.rowCount === 0) {
     return response.status(404).json({ error: "message not found" });
   }
-  response.json({ seccess: true, message: "Message deleted" });
+  response.json({ success: true, message: "Message deleted" });
 });
 app.get("/band_info", async function (request, response) {
   const band_info = await db.query("SELECT * FROM band_info");

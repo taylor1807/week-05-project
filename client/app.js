@@ -1,39 +1,54 @@
 console.log("test");
 
-//! array of urls/alts for gallerylocations:
-
+// Array of gallery locations
 let galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
-    srcset: "Assets/AOchildish-390.webp",
+    srcset: "Assets/AOchildish-390.webp 390w, Assets/AOchildish-760.webp 760w, Assets/AOchildish-1020.webp 1020w, Assets/AOchildish-1440.webp 1440w",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
   },
 
   {
     url: "Assets/cooplivejj.webp",
-    srcset: "Assets/cooplivejj-390.webp",
+    srcset: "Assets/cooplivejj-390.webp 390w, Assets/cooplivejj-760.webp 760w, Assets/cooplivejj-1020.webp 1020w, Assets/cooplivejj-1440.webp 1440w",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
   },
   {
     url: "Assets/wembleydua.webp",
-    srcset: "Assets/wembleydua-390.webp",
+    srcset: "Assets/wembleydua-390.webp 390w, Assets/wembleydua-760.webp 760w, Assets/wembleydua-1020.webp 1020w, Assets/wembleydua1440.webp 1440w",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
   },
 
   {
     url: "Assets/o2londonlinkinpark.webp",
-    srcset: "Assets/o2londonlinkinpark-390.webp",
+    srcset: "Assets/o2londonlinkinpark-390.webp 390w, Assets/o2londonlinkinpark-760.webp 760w, Assets/o2londonlinkinpark-1020.webp 1020w, Assets/o2londonlinkinpark-1440.webp 1440w",
     alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
   },
 ];
 
+
+function formatDateTime(dateString, timeString) {
+  const dateTime = new Date(dateString + 'T' + timeString);
+  const formattedDate = dateTime.toLocaleDateString();
+  const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return { formattedDate, formattedTime };
+}
+
+function addThumbnails() {
+  const thumbnailBar = document.getElementById("thumbnailBar");
+  if (!thumbnailBar) {
+    console.error("Thumbnail bar element not found");
+    return;
+  }
+  galleryLocations.forEach((image) => {
+
 //!function for gallerylocations images:
 let currentIndex = 0;
-
-const thumbnailCont = document.getElementById("thumbnailCont")
+const thumbnailBar = document.getElementById("thumbnailBar");
 
 function addThumbnails() {
   gallerylocations.forEach((image) => {
+
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
     imageElement.alt = image.alt;
@@ -41,22 +56,18 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
-    thumbnailCont.appendChild(imageElement);
-  }
-)}
-addThumbnails()
+  })
+}
 
+addThumbnails();
 
-//!functions for next and back buttons for gallerylocations images:
-const back = document.getElementById("back");
-const next = document.getElementById("next");
+let currentIndex = 0;
+const images = galleryLocations;
 
 function nextImage() {
   if (currentIndex < images.length - 1) {
     currentIndex += 1;
   } else {
-    currentIndex = 0;
-  }
     currentIndex = 0;
   }
   addFullSizeImage(images[currentIndex]);
@@ -67,66 +78,72 @@ function backImage() {
     currentIndex--;
   } else {
     currentIndex = images.length - 1;
-    currentIndex = images.length - 1;
   }
+  addFullSizeImage(images[currentIndex]);
 }
+
+document.getElementById("back")?.addEventListener("click", backImage);
+document.getElementById("next")?.addEventListener("click", nextImage);
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
-    previousImage();
-  }
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowRight") {
+    backImage();
+  } else if (event.key === "ArrowRight") {
     nextImage();
   }
 });
 
+function addFullSizeImage(image) {
+  // Implement adding full-size image functionality here
+}
+
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
 
-// get messages from server
 async function getMessages() {
-  const response = await fetch("http://localhost:8080/messages");
-  const data = await response.json();
-  console.log(data);
-  messageBoardContainer.innerHTML = "";
-  //create elements in the message container
-  data.forEach(function (message) {
-    const messageContainer = document.createElement("div");
-    messageContainer.classList.add("messageContainer");
+  try {
+    const response = await fetch("http://localhost:8080/messages");
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json();
+    console.log(data);
+    messageBoardContainer.innerHTML = "";
+    data.forEach(function (message) {
+      const messageContainer = document.createElement("div");
+      messageContainer.classList.add("messageContainer");
 
-    const messageInsert = document.createElement("p");
-    messageInsert.textContent = `${message.name} wrote: ${message.message}`;
+      const messageInsert = document.createElement("p");
+      messageInsert.textContent = `${message.name} wrote: ${message.message}`;
 
-    const likeCount = document.createElement("span");
-    likeCount.textContent = `Likes: ${message.likes || 0}`;
+      const likeCount = document.createElement("span");
+      likeCount.textContent = `Likes: ${message.likes || 0}`;
 
-    const dislikeCount = document.createElement("span");
-    dislikeCount.textContent = `Dislikes: ${message.dislikes || 0}`;
-    //adding a like button
-    const likeButton = document.createElement("button");
-    likeButton.classList.add("likeBtn");
-    likeButton.textContent = "Like";
-    likeButton.addEventListener("click", function () {
-      handleLike(message.id);
+      const dislikeCount = document.createElement("span");
+      dislikeCount.textContent = `Dislikes: ${message.dislikes || 0}`;
+
+      const likeButton = document.createElement("button");
+      likeButton.classList.add("likeBtn");
+      likeButton.textContent = "Like";
+      likeButton.addEventListener("click", function () {
+        handleLike(message.id);
+      });
+
+      const dislikeButton = document.createElement("button");
+      dislikeButton.classList.add("dislikeBtn");
+      dislikeButton.textContent = "Dislike";
+      dislikeButton.addEventListener("click", function () {
+        handleDislike(message.id);
+      });
+
+      messageContainer.appendChild(messageInsert);
+      messageContainer.appendChild(likeCount);
+      messageContainer.appendChild(likeButton);
+      messageContainer.appendChild(dislikeCount);
+      messageContainer.appendChild(dislikeButton);
+      messageBoardContainer.appendChild(messageContainer);
     });
-    //adding a dislike button
-    const dislikeButton = document.createElement("button");
-    dislikeButton.classList.add("dislikeBtn");
-    dislikeButton.textContent = "Dislike";
-    dislikeButton.addEventListener("click", function () {
-      handleDislike(message.id);
-    });
-    //append elements to the dom
-    messageContainer.appendChild(messageInsert);
-    messageContainer.appendChild(likeCount);
-    messageContainer.appendChild(likeButton);
-    messageContainer.appendChild(dislikeCount);
-    messageContainer.appendChild(dislikeButton);
-    messageBoardContainer.appendChild(messageContainer);
-  });
+  } catch (error) {
+    console.error('Failed to fetch messages:', error);
+  }
 }
 
 getMessages();
@@ -135,86 +152,97 @@ async function handlePostMessage(event) {
   event.preventDefault();
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
-  await fetch("http://localhost:8080/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  form.reset();
-  getMessages();
-}
-async function handleLike(messageId) {
-  const response = await fetch(
-    `http://localhost:8080/messages/${messageId}/like`,
-    {
+  try {
+    await fetch("http://localhost:8080/messages", {
       method: "POST",
-    }
-  );
-  getMessages();
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    form.reset();
+    getMessages();
+  } catch (error) {
+    console.error('Failed to post message:', error);
+  }
 }
-async function handleDislike(messageId) {
-  const response = await fetch(
-    `http://localhost:8080/messages/${messageId}/like`,
-    {
-      method: "POST",
-    }
-  );
-}
-form.addEventListener("submit", handlePostMessage);
-getMessages();
 
-//add a burger menu
+async function handleLike(messageId) {
+  try {
+    await fetch(`http://localhost:8080/messages/${messageId}/like`, {
+      method: "POST",
+    });
+    getMessages();
+  } catch (error) {
+    console.error('Failed to like message:', error);
+  }
+}
+
+async function handleDislike(messageId) {
+  try {
+    await fetch(`http://localhost:8080/messages/${messageId}/dislike`, {
+      method: "POST",
+    });
+    getMessages();
+  } catch (error) {
+    console.error('Failed to dislike message:', error);
+  }
+}
+
+form?.addEventListener("submit", handlePostMessage);
+
 function toggleMenu() {
   const menu = document.getElementById("nav-links");
-  menu.classList.toggle("active");
+  if (menu) {
+    menu.classList.toggle("active");
+  } else {
+    console.error("Menu element not found");
+  }
 }
 
-const bandWebsites = {
-  1: "https://www.ticketmaster.co.uk/linkin-park-tickets/artist/703831",
-  2: "https://www.ticketmaster.co.uk/janet-jackson-tickets/artist/972908",
-  3: "https://www.ticketmaster.co.uk/dua-lipa-tickets/artist/2179476",
-  4: "https://www.ticketmaster.co.uk/childish-gambino-tickets/artist/1503424",
-};
+// Added date and time formatting functions - COMMIT
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+//adding elements from db2 to the dom
+async function fetchBandInfo() {
+  const response = await fetch("http://localhost:8080/band_info");
+  const data = await response.json();
+  displayBandInfo(data);
+}
 
-fetch("http://localhost:8080/band_info")
-  .then((response) => response.json())
-  .then((data) => {
-    const bandInfoDiv = document.getElementById("band-info");
+function displayBandInfo(bands) {
+  const bandContainer = document.getElementById("band-info");
+  bandContainer.innerHTML = "";
+  bands.forEach((band) => {
+    const bandDiv = document.createElement("div");
+    bandDiv.classList.add("bandDiv");
+    const bandName = document.createElement("h2");
+    bandName.textContent = band.band_name;
+    const location = document.createElement("p");
+    location.textContent = `Location: ${band.location}`;
+    const venueName = document.createElement("p");
+    venueName.textContent = `Venue: ${band.venue_name}`;
+    const eventDate = document.createElement("p");
+    eventDate.textContent = `Date: ${band.event_date}`;
+    const eventTime = document.createElement("p");
+    eventTime.textContent = `Time: ${band.event_time}`;
+    const websiteLink = document.createElement("a");
+    websiteLink.href = band.website_url;
+    websiteLink.target = "_blank";
+    websiteLink.textContent = "Visit Website";
 
-    data.forEach((band) => {
-      const bandDiv = document.createElement("div");
-      bandDiv.classList.add("band-container");
-
-      const bandName = document.createElement("h2");
-      bandName.textContent = band.band_name;
-
-      const bandLocation = document.createElement("p");
-      bandLocation.textContent = `Location: ${band.location}`;
-
-      const bandVenue = document.createElement("p");
-      bandVenue.textContent = `Venue: ${band.venue_name}`;
-
-      const bandDate = document.createElement("p");
-      bandDate.textContent = `Date: ${band.event_date}`;
-
-      const bandTime = document.createElement("p");
-      bandTime.textContent = `Time: ${band.event_time}`;
-
-      const visitButton = document.createElement("button");
-      visitButton.classList.add("visitBtn");
-      visitButton.textContent = "Visit Site";
-      visitButton.onclick = () => {
-        window.location.href = bandWebsites[band.id];
-      };
-      //add elements to the dom
-      bandDiv.appendChild(bandName);
-      bandDiv.appendChild(bandLocation);
-      bandDiv.appendChild(bandVenue);
-      bandDiv.appendChild(bandDate);
-      bandDiv.appendChild(bandTime);
-      bandDiv.appendChild(visitButton);
+    bandDiv.appendChild(eventDate);
+    bandDiv.appendChild(eventTime);
+    bandDiv.appendChild(websiteLink);
+    bandDiv.appendChild(eventDateElem);
+    bandDiv.appendChild(eventTimeElem);
+    bandDiv.appendChild(websiteLink);
 
     bandContainer.appendChild(bandDiv);
   });

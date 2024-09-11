@@ -173,10 +173,13 @@ nav {
 /* About Us Section Styles */
 .about {
   position: relative;
-  min-height: 100vh;
-  background: url("/home/morahim/tech-educators-bootcamps/week05/project/week-05-project/client/Assets/Vibelibne-Logo.webp")
-    no-repeat center center;
-  background-size: cover;
+
+
+  min-height: 100vh; 
+  background: url('/Assets/Vibelibne-Logo.webp') no-repeat center center;
+  background-size: cover; 
+
+
   color: #fff;
   text-align: left;
   display: flex;
@@ -236,7 +239,7 @@ nav {
 
 messageboard
 
-/* #messageBoardContainer {
+#messageBoardContainer {
   position: fixed;
   bottom: 10px; /* Adjusted for better visibility */
   /* left: 50px;
@@ -251,7 +254,8 @@ messageboard
   overflow-y: auto;
   z-index: 1000;
   font-family: "Poppins", sans-serif;
-} */ 
+
+}
 
 #messageBoardContainer h3 {
   margin: 0 0 1rem 0;
@@ -279,7 +283,7 @@ messageboard
 
 /*Message Form*/
 
-.message_form {
+#messageForm {
   width: 100%;
   max-width: 350px;
   padding: 1rem;
@@ -572,7 +576,7 @@ footer {
     right: 10px;
     transform: none;
     width: 70%;
-    max-width: 300px; /* Further increased max-width for desktops */
+    max-width: 350px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
   }
 }
@@ -597,7 +601,7 @@ footer {
 
   #messageBoardContainer {
     width: 70%;
-    max-width: 300px; /* Further increased max-width for desktops */
+    max-width: 400px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
   }
 }
