@@ -77,17 +77,7 @@ document.addEventListener("keydown", function (event) {
 
 //!_____________________________________________________________________________________________________
 
-
-function formatDateTime(dateString, timeString) {
-  const dateTime = new Date(dateString + 'T' + timeString);
-  const formattedDate = dateTime.toLocaleDateString();
-  const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  return { formattedDate, formattedTime };
-}
-
-formatDateTime()
-
-
+// I removed the formatting Date and Time Function from here
 
 function addFullSizeImage(image) {
   // Implement adding full-size image functionality here
@@ -196,7 +186,7 @@ function toggleMenu() {
   }
 }
 
-// Added date and time formatting functions - COMMIT
+// Added date formatting functions - COMMIT
 function formatDate(dateString) {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-GB', {
@@ -224,8 +214,9 @@ function displayBandInfo(bands) {
     location.textContent = `Location: ${band.location}`;
     const venueName = document.createElement("p");
     venueName.textContent = `Venue: ${band.venue_name}`;
+    const formattedEventDate = formatDate(band.event_date); // Format the event date using the formatDate function for UK format
     const eventDate = document.createElement("p");
-    eventDate.textContent = `Date: ${band.event_date}`;
+    eventDate.textContent = `Date: ${formattedEventDate}`; // Added this 
     const eventTime = document.createElement("p");
     eventTime.textContent = `Time: ${band.event_time}`;
     const websiteLink = document.createElement("a");
@@ -233,14 +224,25 @@ function displayBandInfo(bands) {
     websiteLink.target = "_blank";
     websiteLink.textContent = "Visit Website";
 
+    bandDiv.appendChild(bandName); //Added to display band name
+    bandDiv.appendChild(location); //Added to display event location 
+    bandDiv.appendChild(venueName); //Added to display venue name
     bandDiv.appendChild(eventDate);
     bandDiv.appendChild(eventTime);
-    bandDiv.appendChild(websiteLink);
-    bandDiv.appendChild(eventDateElem);
-    bandDiv.appendChild(eventTimeElem);
     bandDiv.appendChild(websiteLink);
 
     bandContainer.appendChild(bandDiv);
   });
 }
-window.onload = fetchBandInfo;
+
+ fetchBandInfo();
+
+
+
+
+
+
+
+
+
+ 
