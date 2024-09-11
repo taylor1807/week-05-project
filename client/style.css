@@ -139,6 +139,60 @@ nav {
   color: #f5f2f1;
 }
 
+/* About Us Section Styles */
+.about {
+  position: relative;
+  min-height: 100vh; 
+  background: url('/home/morahim/tech-educators-bootcamps/week05/project/week-05-project/client/Assets/Vibelibne-Logo.webp') no-repeat center center;
+  background-size: cover; 
+  color: #fff;
+  text-align: left;
+  display: flex;
+  align-items:end;
+}
+
+.about-content {
+  margin: 2px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.about h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px
+
+}
+
+.about .intro {
+  font-weight: bold;
+}
+
+.about .mission {
+  font-style: italic;
+}
+
+.about .join-us {
+  font-weight: bold;
+}
+
+/* gallery locations */
+.galleryLocations {
+  display: flex;
+  position: absolute;
+  height: 20vh;
+  width: 100%;
+}
+
+.galleryLocations #thumbnailBar {
+  position: relative;
+  height: 10vh;
+  width: 100%;
+}
+
 /*messageboard*/
 
 #messageBoardContainer {
@@ -182,6 +236,87 @@ nav {
   font-size: 0.9rem; /* Font size for message text */
 }
 
+/*Message Form*/
+
+.message_form {
+  width: 100%;
+  max-width: 350px;
+  background-color: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.message_form h2 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+.message_form form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Row */
+.input-row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-row label {
+  color: #ddd;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input-row input,
+.input-row textarea {
+  padding: 0.7rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #444;
+  color: #fff;
+  font-size: 0.9rem;
+  resize: none; /* Prevents textarea resizing */
+}
+
+.input-row input:focus,
+.input-row textarea:focus {
+  outline: none;
+  border-color: #45a049; /* Green border on focus */
+}
+
+/* Textarea styling */
+textarea {
+  height: 100px;
+}
+
+/* Submit Button */
+.message_form button[type="submit"] {
+  background-color: #45a049;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.message_form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.message_form button[type="submit"]:active {
+  transform: scale(0.95);
+}
+
 /*like and dislike button*/
 button.likeBtn,
 button.dislikeBtn {
@@ -203,7 +338,7 @@ button.dislikeBtn i {
 
 /* Like Button */
 button.likeBtn {
-  background-color: #4caf50;
+  background-color: #4a4d4a;
 }
 
 button.likeBtn:hover {
@@ -216,7 +351,7 @@ button.likeBtn:active {
 
 /* Dislike Button */
 button.dislikeBtn {
-  background-color: #f44336;
+  background-color: #4e4c4c;
 }
 
 button.dislikeBtn:hover {
@@ -226,8 +361,6 @@ button.dislikeBtn:hover {
 button.dislikeBtn:active {
   transform: scale(0.95);
 }
-
-/*MESSAGE FORM*/
 
 /* Footer */
 footer {
@@ -307,6 +440,25 @@ footer {
   .nav-links li {
     margin: 15px 0;
     text-align: center;
+  }
+
+  .message_form {
+    padding: 0.8rem;
+  }
+
+  .message_form h2 {
+    font-size: 1.2rem;
+  }
+
+  .input-row input,
+  .input-row textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .message_form button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
   }
 }
 
