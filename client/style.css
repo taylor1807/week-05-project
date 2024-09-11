@@ -236,7 +236,7 @@ nav {
 
 /*messageboard*/
 
-/* #messageBoardContainer {
+#messageBoardContainer {
   position: fixed;
   bottom: 10px; /* Adjusted for better visibility */
   left: 50px;
@@ -251,7 +251,7 @@ nav {
   overflow-y: auto;
   z-index: 1000;
   font-family: "Poppins", sans-serif;
-} */
+}
 
 #messageBoardContainer h3 {
   margin: 0 0 1rem 0;
@@ -279,7 +279,7 @@ nav {
 
 /*Message Form*/
 
-.message_form {
+#messageForm {
   width: 100%;
   max-width: 350px;
   padding: 1rem;
