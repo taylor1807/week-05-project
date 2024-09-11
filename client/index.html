@@ -43,42 +43,52 @@
     <main>
       <!-- Welcome Section -->
       <section class="welcome">
-        <h1>Welcome to VibeLine</h1>
-        <p>Join us for amazing events</p>
+        <img class="welcomeimg" src="Assets/concert3.webp" alt="Large crowd" />
+        <div class="center"><h1>Welcome to VibeLine</h1></div>
       </section>
 
       <!-- MESSAGEBOARD-->
-      <div id="messageBoardContainer">
-        <section class="message_form"></section>
-        <h2>Leave a Message</h2>
-        <form id="messageForm">
-          <div class="input-row">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter Your Name"
-              required
-            />
-          </div>
-          <div class="input-row">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Enter Your Message"
-              required
-            ></textarea>
-          </div>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
+
+      <section class="message_form"></section>
+      <h2>Leave a Message</h2>
+      <form id="messageForm">
+        <div class="input-row">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter Your Name"
+            required
+          />
+        </div>
+        <div class="input-row">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="messageBoardContainer"></div>
+
       <!-- Event Locations Section -->
       <section class="event_locations">
         <h2>Upcoming Events</h2>
         <div id="band-info"></div>
         <img src="./Assets/Vibelibne-Logo.webp" alt="Logo Image" class="logo" />
+      </section>
+       <!-- About Section -->
+      <section id="about" class="about">
+        <div class="about-content">
+        <h2>About Us</h2>
+        <p class="intro">VibeLine is your go-to destination for discovering and enjoying live music events.</p>
+        <p class="mission">Our mission </p>
+        <p class="join-us">Join us on this musical journey and be a part of the VibeLine community.</p>
+        </div>
       </section>
       <!-- Gallery locations Section -->
       <div id="thumbnailCont"></div>
@@ -90,6 +100,7 @@
       <div id="nextButton">
         <button id="next" aria-label="press to view next image">Next</button>
       </div>
+      <div id="band-info"></div>
     </main>
     <footer>
       <div class="footer_container">
