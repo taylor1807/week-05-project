@@ -19,7 +19,7 @@ let galleryLocations = [
     srcset: "Assets/wembleydua-390.webp",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
   },
-  client/Assets/AOchildish-760.webp
+
   {
     url: "Assets/o2londonlinkinpark.webp",
     srcset: "Assets/o2londonlinkinpark-390.webp",
@@ -166,51 +166,41 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 
-const bandWebsites = {
-  1: "https://www.ticketmaster.co.uk/linkin-park-tickets/artist/703831",
-  2: "https://www.ticketmaster.co.uk/janet-jackson-tickets/artist/972908",
-  3: "https://www.ticketmaster.co.uk/dua-lipa-tickets/artist/2179476",
-  4: "https://www.ticketmaster.co.uk/childish-gambino-tickets/artist/1503424",
-};
+async function fetchBandInfo() {
+  const response = await fetch("http://localhost:8080/band_info");
+  const data = await response.json();
+  displayBandInfo(data);
+}
 
-fetch("http://localhost:8080/band_info")
-  .then((response) => response.json())
-  .then((data) => {
-    const bandInfoDiv = document.getElementById("band-info");
+function displayBandInfo(bands) {
+  const bandContainer = document.getElementById("band-info");
+  bandContainer.innerHTML = "";
+  bands.forEach((band) => {
+    const bandDiv = document.createElement("div");
+    bandDiv.classList.add("bandDiv");
+    const bandName = document.createElement("h2");
+    bandName.textContent = band.band_name;
+    const location = document.createElement("p");
+    location.textContent = `Location: ${band.location}`;
+    const venueName = document.createElement("p");
+    venueName.textContent = `Venue: ${band.venue_name}`;
+    const eventDate = document.createElement("p");
+    eventDate.textContent = `Date: ${band.event_date}`;
+    const eventTime = document.createElement("p");
+    eventTime.textContent = `Time: ${band.event_time}`;
+    const websiteLink = document.createElement("a");
+    websiteLink.href = band.website_url;
+    websiteLink.target = "_blank";
+    websiteLink.textContent = "Visit Website";
 
-    data.forEach((band) => {
-      const bandDiv = document.createElement("div");
-      bandDiv.classList.add("band-container");
+    bandDiv.appendChild(bandName);
+    bandDiv.appendChild(location);
+    bandDiv.appendChild(venueName);
+    bandDiv.appendChild(eventDate);
+    bandDiv.appendChild(eventTime);
+    bandDiv.appendChild(websiteLink);
 
-      const bandName = document.createElement("h2");
-      bandName.textContent = band.band_name;
-
-      const bandLocation = document.createElement("p");
-      bandLocation.textContent = `Location: ${band.location}`;
-
-      const bandVenue = document.createElement("p");
-      bandVenue.textContent = `Venue: ${band.venue_name}`;
-
-      const bandDate = document.createElement("p");
-      bandDate.textContent = `Date: ${band.event_date}`;
-
-      const bandTime = document.createElement("p");
-      bandTime.textContent = `Time: ${band.event_time}`;
-
-      const visitButton = document.createElement("button");
-      visitButton.classList.add("visitBtn");
-      visitButton.textContent = "Visit Site";
-      visitButton.onclick = () => {
-        window.location.href = bandWebsites[band.id];
-      };
-      //add elements to the dom
-      bandDiv.appendChild(bandName);
-      bandDiv.appendChild(bandLocation);
-      bandDiv.appendChild(bandVenue);
-      bandDiv.appendChild(bandDate);
-      bandDiv.appendChild(bandTime);
-      bandDiv.appendChild(visitButton);
-
-      bandInfoDiv.appendChild(bandDiv);
-    });
+    bandContainer.appendChild(bandDiv);
   });
+}
+window.onload = fetchBandInfo;
