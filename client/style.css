@@ -211,11 +211,21 @@ nav {
 }
 
 /* gallery locations */
-.galleryLocations {
+#thumbnailCont {
   display: flex;
   position: absolute;
   height: 20vh;
   width: 100%;
+}
+
+#backButton {
+  display: flex;
+  position: absolute;
+}
+#nextButton {
+  display: flex;
+  position: absolute;
+  left: 80%;
 }
 
 .galleryLocations #thumbnailBar {
@@ -226,7 +236,7 @@ nav {
 
 /*messageboard*/
 
-#messageBoardContainer {
+/* #messageBoardContainer {
   position: fixed;
   bottom: 10px; /* Adjusted for better visibility */
   left: 50px;
@@ -241,7 +251,7 @@ nav {
   overflow-y: auto;
   z-index: 1000;
   font-family: "Poppins", sans-serif;
-}
+} */
 
 #messageBoardContainer h3 {
   margin: 0 0 1rem 0;

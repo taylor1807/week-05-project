@@ -29,7 +29,8 @@ let galleryLocations = [
 
 //!function for gallerylocations images:
 let currentIndex = 0;
-const thumbnailBar = document.getElementById("thumbnailBar");
+
+const thumbnailCont = document.getElementById("thumbnailCont")
 
 function addThumbnails() {
   gallerylocations.forEach((image) => {
@@ -40,8 +41,12 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
-  });
-}
+    thumbnailCont.appendChild(imageElement);
+  }
+)}
+addThumbnails()
+
+
 //!functions for next and back buttons for gallerylocations images:
 const back = document.getElementById("back");
 const next = document.getElementById("next");
