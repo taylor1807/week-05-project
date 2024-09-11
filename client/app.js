@@ -29,16 +29,16 @@ let gallerylocations = [
 
 //!function for gallerylocations images:
 function addThumbnails() {
-  gallerylocations.forEach( (image) => {
+  gallerylocations.forEach((image) => {
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
     imageElement.alt = image.alt;
     imageElement.srcset = image.srcset;
-    imageElement.addEventListener('click', function() {
-      console.log(`Clicked on ${image.alt}`)
+    imageElement.addEventListener("click", function () {
+      console.log(`Clicked on ${image.alt}`);
     });
-  }
-)}
+  });
+}
 //!functions for next and back buttons for gallerylocations images:
 const back = document.getElementById("back");
 const next = document.getElementById("next");
@@ -47,8 +47,8 @@ function nextImage() {
   if (currentIndex < images.length - 1) {
     currentIndex += 1;
   } else {
-    currentIndex = 0
-    }
+    currentIndex = 0;
+  }
   addFullSizeImage(images[currentIndex]);
 }
 
@@ -56,7 +56,7 @@ function backImage() {
   if (currentIndex > 0) {
     currentIndex--;
   } else {
-    currentIndex = images.length -1;
+    currentIndex = images.length - 1;
   }
 }
 
@@ -71,7 +71,6 @@ document.addEventListener("keydown", function (event) {
     nextImage();
   }
 });
-
 
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
@@ -168,7 +167,7 @@ const bandWebsites = {
   4: "https://www.ticketmaster.co.uk/childish-gambino-tickets/artist/1503424",
 };
 
-fetch("http://localhost:8080/bands")
+fetch("http://localhost:8080/band_info")
   .then((response) => response.json())
   .then((data) => {
     const bandInfoDiv = document.getElementById("band-info");
