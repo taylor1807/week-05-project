@@ -143,7 +143,7 @@ nav {
 .about {
   position: relative;
   min-height: 100vh; 
-  background: url('/home/morahim/tech-educators-bootcamps/week05/project/week-05-project/client/Assets/Vibelibne-Logo.webp') no-repeat center center;
+  background: url('/Assets/Vibelibne-Logo.webp') no-repeat center center;
   background-size: cover; 
   color: #fff;
   text-align: left;
