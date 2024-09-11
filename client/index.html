@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
     <script type="module" src="app.js" defer></script>
     <title>VibeLine</title>
@@ -38,7 +40,6 @@
         </nav>
       </div>
     </header>
-
     <main>
       <!-- Welcome Section -->
       <section class="welcome">
@@ -46,27 +47,73 @@
         <p>Join us for amazing events</p>
       </section>
 
+      <!-- MESSAGEBOARD-->
+
+      <section class="message_form"></section>
+      <h2>Leave a Message</h2>
+      <form id="messageForm">
+        <div class="input-row">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter Your Name"
+            required
+          />
+        </div>
+        <div class="input-row">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter Your Message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="messageBoardContainer"></div>
+
       <!-- Event Locations Section -->
       <section class="event_locations">
         <h2>Upcoming Events</h2>
         <div id="band-info"></div>
+        <div id="thumbnailBar"></div>
+        <div id="backButton">
+          <button id="back" aria-label="press to view previous image"></button>
+        </div>
+        <div id="nextButton">
+          <button id="next" aria-label="press to view next image"></button>
+        </div>
       </section>
       <section class="message_form">
         <h2>Leave a Message</h2>
         <form id="messageForm">
-            <div class="input-row">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
-            </div>
-            <div class="input-row">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Enter Your Message" required></textarea>
-            </div>
-            <button type="submit">Send Message</button>
+          <div class="input-row">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter Your Name"
+              required
+            />
+          </div>
+          <div class="input-row">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Enter Your Message"
+              required
+            ></textarea>
+          </div>
+          <button type="submit">Send Message</button>
         </form>
-    </section>
-    </main>
+      </section>
 
+    </main>
     <footer>
       <div class="footer_container">
         <img src="./Assets/Vibelibne-Logo.webp" alt="Logo Image" class="logo" />
@@ -76,7 +123,6 @@
           <p>VibeLine &copy; 2024</p>
         </div>
 
-        <div id="messageBoardContainer"></div>
         <!-- Social Media Icons -->
         <div class="social_media">
           <a href="https://www.facebook.com" class="media-icon"
