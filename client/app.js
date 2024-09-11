@@ -1,5 +1,5 @@
 console.log('test')
-// repush @ 15:32
+console.log('test for sure')
 // Array of gallery locations
 //!_______________________________________________________________________________________________________________________________
 let galleryLocations = [
