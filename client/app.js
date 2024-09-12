@@ -30,7 +30,7 @@ let galleryLocations = [
   },
 ];
 
-//!function for gallerylocations images:
+// !function for gallerylocations images:
 let currentIndex = 0;
 const thumbnailCont = document.getElementById("thumbnailCont");
 
@@ -43,7 +43,9 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
-    /*thumbnailCont.appendChild(imageElement);*/
+
+    // thumbnailCont.appendChild(imageElement);
+
   });
 }
 
@@ -177,17 +179,14 @@ async function handleDislike(messageId) {
   }
 }
 async function handleDelete(messageId) {
-  const response = await fetch(
-    `https://guestbook-server-xa3l.onrender.com/messages/${messageId}`,
-    {
-      method: "DELETE",
-    }
-  );
+  const response = await fetch(`http://localhost:8080/messages/${messageId}`, {
+    method: "DELETE",
+  });
   if (response.ok) {
     getMessages();
   }
 }
-form?.addEventListener("submit", handlePostMessage);
+form.addEventListener("submit", handlePostMessage);
 
 //
 function toggleMenu() {
