@@ -21,6 +21,7 @@ body {
 /*! Header section: */
 header {
   position: sticky;
+  top: 0;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -28,7 +29,7 @@ header {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0;
-  z-index: 1;
+  z-index: 10;
 }
 
 .background-container {
@@ -53,7 +54,7 @@ header .burgerContainer {
   display: flex;
   position: relative;
   justify-content: space-between;
-  width: 100%;
+  width: 75%;
   margin: 0.5rem;
 }
 
@@ -252,16 +253,16 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 #mainImageContainer {
   position: relative;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,11 +271,12 @@ h1 {
 #mainImage {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  border-radius: 0; 
+  object-fit: cover;
+  border-radius: 0;
 }
 
-#back, #next {
+#back,
+#next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -288,14 +290,15 @@ h1 {
 }
 
 #back {
-  left: 120px; 
+  left: 120px;
 }
 
 #next {
-  right: 120px; 
+  right: 120px;
 }
 
-#back:hover, #next:hover {
+#back:hover,
+#next:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -306,7 +309,7 @@ h1 {
   gap: 10px;
   padding: 10px;
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   width: 100%;
   max-width: 800px;
   box-sizing: border-box;
@@ -328,7 +331,7 @@ h1 {
 @media (max-width: 390px) {
   #thumbnailCont {
     flex-wrap: wrap;
-    bottom: 10px; 
+    bottom: 10px;
   }
 
   #thumbnailCont img {
@@ -340,7 +343,8 @@ h1 {
     height: 100vh;
   }
 
-  #back, #next {
+  #back,
+  #next {
     font-size: 1.2rem;
     padding: 6px;
   }
@@ -350,7 +354,7 @@ h1 {
 @media (max-width: 760px) {
   #thumbnailCont {
     flex-wrap: wrap;
-    bottom: 15px; 
+    bottom: 15px;
   }
 
   #thumbnailCont img {
@@ -362,7 +366,8 @@ h1 {
     height: 100vh;
   }
 
-  #back, #next {
+  #back,
+  #next {
     font-size: 1.5rem;
     padding: 8px;
   }
@@ -371,7 +376,7 @@ h1 {
 /* PCs (1020px and below) */
 @media (max-width: 1020px) {
   #thumbnailCont {
-    bottom: 20px; 
+    bottom: 20px;
   }
 
   #thumbnailCont img {
@@ -383,7 +388,8 @@ h1 {
     height: 100vh;
   }
 
-  #back, #next {
+  #back,
+  #next {
     font-size: 1.8rem;
     padding: 8px;
   }
@@ -392,7 +398,7 @@ h1 {
 /* Large Screens (1440px and above) */
 @media (min-width: 1440px) {
   #thumbnailCont {
-    bottom: 30px; 
+    bottom: 30px;
   }
 
   #thumbnailCont img {
@@ -404,13 +410,12 @@ h1 {
     height: 100vh;
   }
 
-  #back, #next {
+  #back,
+  #next {
     font-size: 2rem;
     padding: 10px;
   }
 }
-
-
 
 /* Messageboard: */
 
