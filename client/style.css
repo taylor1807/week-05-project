@@ -888,7 +888,7 @@ a {
   text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
 }
 .event_locations {
-  background-image: url("Assets/guitarist.webp");
+  background-image: url("./Assets/guitarist.webp");
   background-size: cover;
 }
 
