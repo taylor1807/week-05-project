@@ -43,7 +43,9 @@ function addThumbnails() {
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
     });
+
     // thumbnailCont.appendChild(imageElement);
+
   });
 }
 

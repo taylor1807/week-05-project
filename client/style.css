@@ -9,7 +9,6 @@ h2 {
 
 html {
   scroll-behavior: smooth;
-  margin: 0px;
 }
 
 body {
@@ -17,22 +16,21 @@ body {
   color: #fff;
   font-size: 16px;
   line-height: 1.6;
-  margin: 0px;
 }
 
 /* Header */
 header {
-  position: sticky;
+  position: fixed;
   color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  top: 1vh;
-  left: 3vw;
-  right: 3vw;
-  width: 92vw;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  padding: 0;
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  z-index: 100;
 }
 
 /*BURGER MENU*/
@@ -103,11 +101,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
 }
 
 .logo {
-  width: 2vw; /* Smaller logo for mobile */
+  width: 80px;
   height: auto;
   display: inline-block;
   border-radius: 20px;
@@ -115,7 +113,7 @@ header {
 
 /* Navigation Menu */
 nav {
-  display: none; /* Hidden on mobile, visible on larger screens */
+  display: none;
 }
 
 .nav_bar a {
@@ -133,11 +131,9 @@ nav {
 
 /* Welcome Section */
 .welcome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  width: 90vw;
+  width: 100%;
+  padding: 20px;
 }
 
 .welcomeimg {
@@ -151,10 +147,16 @@ nav {
   z-index: -1;
 }
 
-.welcome h1 {
+.center {
   position: relative;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.welcome h1 {
   opacity: 0.8;
   color: #dc2f2f;
+  font-size: 2rem;
 }
 
 /* Event Locations */
@@ -239,12 +241,12 @@ nav {
   position: fixed;
   bottom: 10px;
   left: 50px;
-  width: 80%; /* Smaller width for mobile screens */
+  width: 80%;
   max-width: 300px;
   max-height: 40vh;
   background-color: #333;
   color: #fff;
-  padding: 0.8rem; /* Reduced padding */
+  padding: 0.8rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
@@ -267,13 +269,13 @@ nav {
 .message_item {
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #444; /* Slightly lighter background for messages */
-  border-radius: 4px; /* Rounded corners for messages */
+  background-color: #444;
+  border-radius: 4px;
 }
 
 .message_item p {
   margin: 0;
-  font-size: 0.9rem; /* Font size for message text */
+  font-size: 0.9rem;
 }
 
 /*Message Form*/
@@ -322,13 +324,13 @@ nav {
   background-color: #444;
   color: #fff;
   font-size: 0.9rem;
-  resize: none; /* Prevents textarea resizing */
+  resize: none;
 }
 
 .input-row input:focus,
 .input-row textarea:focus {
   outline: none;
-  border-color: #45a049; /* Green border on focus */
+  border-color: #45a049;
 }
 
 /* Textarea styling */
@@ -367,12 +369,12 @@ button.dislikeBtn {
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.3s ease, transform 0.2s;
-  margin-right: 0.5rem; /* Space between buttons */
+  margin-right: 0.5rem;
 }
 
 button.likeBtn i,
 button.dislikeBtn i {
-  margin-right: 0.5rem; /* Space between icon and text */
+  margin-right: 0.5rem;
 }
 
 /* Like Button */
@@ -437,12 +439,12 @@ footer {
   color: #3636f4;
 }
 
-/* Responsive Media Queries */
+/* MEDIA QUERIES */
 
-/* Tablets and small devices (min-width: 600px) */
+/* Tablets and mobiles */
 @media (min-width: 390px) {
   .logo {
-    width: 90px; /* Slightly larger logo */
+    width: 90px;
   }
 
   .welcome {
@@ -501,14 +503,14 @@ footer {
   }
 }
 
-/* Tablets in landscape mode and larger (min-width: 768px) */
+/* Tablets */
 @media (min-width: 760px) {
   .burger {
     display: none; /* Hide hamburger on larger screens */
   }
 
   nav {
-    display: flex; /* Show navigation on larger screens */
+    display: flex;
     gap: 1.5rem;
     align-items: center;
   }
@@ -534,20 +536,20 @@ footer {
 
   #messageBoardContainer {
     width: 75%;
-    max-width: 300px; /* Increased max-width for tablets and larger devices */
-    bottom: 20px; /* Adjusted bottom spacing */
+    max-width: 300px;
+    bottom: 20px;
     max-height: 50vh;
   }
 }
 
-/* Laptops and desktops (min-width: 1024px) */
+/* Laptops and desktops  */
 @media (min-width: 1020px) {
   header {
     padding: 2rem 3rem;
   }
 
   .logo {
-    width: 120px; /* Larger logo for desktop */
+    width: 120px;
   }
 
   .nav_bar a {
@@ -571,32 +573,32 @@ footer {
     right: 10px;
     transform: none;
     width: 70%;
-    max-width: 350px; /* Further increased max-width for desktops */
-    bottom: 30px; /* Adjusted bottom spacing */
+    max-width: 350px;
+    bottom: 30px;
   }
 }
 
-/* Large desktops (min-width: 1440px) */
+/* Large desktops  */
 @media (min-width: 1440px) {
   .logo {
-    width: 140px; /* Extra large logo */
-  }
+    width: 140px;
 
-  .welcome h1 {
-    font-size: 4rem;
-  }
+    .welcome h1 {
+      font-size: 4rem;
+    }
 
-  .event_locations h2 {
-    font-size: 3rem;
-  }
+    .event_locations h2 {
+      font-size: 3rem;
+    }
 
-  .burger {
-    display: none;
-  }
+    .burger {
+      display: none;
+    }
 
-  #messageBoardContainer {
-    width: 70%;
-    max-width: 400px; /* Further increased max-width for desktops */
-    bottom: 30px; /* Adjusted bottom spacing */
+    #messageBoardContainer {
+      width: 70%;
+      max-width: 400px;
+      bottom: 30px;
+    }
   }
 }
