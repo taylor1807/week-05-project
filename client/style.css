@@ -1,4 +1,4 @@
-/* General Reset and Body */
+/*! General Reset and Body */
 body,
 h1,
 h2 {
@@ -18,22 +18,45 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/*! Header section: */
 header {
-  position: fixed;
+  display: flex;
+  position: sticky;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0;
-  border-radius: 20px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  z-index: 100;
+  z-index: 1;
 }
 
-/*BURGER MENU*/
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.welcomeimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*BURGER MENU START>*/
+
+header .burgerContainer {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.5rem;
+}
 
 .navbar {
   display: flex;
@@ -42,6 +65,7 @@ header {
   padding: 10px 20px;
   background-color: #333;
   color: white;
+  border-radius: 20px;
 }
 
 .burger {
@@ -95,17 +119,10 @@ header {
   }
 }
 
-/*BURGER MENU*/
+/*BURGER MENU END^*/
 
-.header_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.logo {
-  width: 80px;
+header .logo {
+  width: 15vw;
   height: auto;
   display: inline-block;
   border-radius: 20px;
@@ -129,22 +146,13 @@ nav {
   color: #4936f4;
 }
 
-/* Welcome Section */
-.welcome {
+/*! header section end^ */
+
+/*! Welcome Section */
+.welcomepage {
   text-align: center;
   width: 100%;
-  padding: 20px;
-}
-
-.welcomeimg {
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  height: 100vh;
 }
 
 .center {
@@ -153,10 +161,13 @@ nav {
   padding: 0 10px;
 }
 
-.welcome h1 {
-  opacity: 0.8;
-  color: #dc2f2f;
-  font-size: 2rem;
+h1 {
+  font-size: 5rem;
+  font-weight: bold; 
+  color: transparent; 
+  -webkit-text-stroke: 2px rgb(252, 80, 49);
+  background-clip: text; 
+  -webkit-background-clip: text; 
 }
 
 /* Event Locations */
