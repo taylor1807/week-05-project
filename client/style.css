@@ -9,6 +9,7 @@ h2 {
 
 html {
   scroll-behavior: smooth;
+  margin: 0px;
 }
 
 body {
@@ -16,21 +17,22 @@ body {
   color: #fff;
   font-size: 16px;
   line-height: 1.6;
+  margin: 0px;
 }
 
 /* Header */
 header {
-  position: fixed;
+  position: sticky;
   color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  top: 1vh;
+  left: 3vw;
+  right: 3vw;
+  width: 92vw;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 0;
-  border-radius: 20px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  z-index: 100;
+  border-radius: 10px;
 }
 
 /*BURGER MENU*/
@@ -101,11 +103,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 
 .logo {
-  width: 80px; /* Smaller logo for mobile */
+  width: 2vw; /* Smaller logo for mobile */
   height: auto;
   display: inline-block;
   border-radius: 20px;
@@ -131,9 +133,11 @@ nav {
 
 /* Welcome Section */
 .welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  width: 100%;
-  padding: 20px;
+  width: 90vw;
 }
 
 .welcomeimg {
@@ -147,16 +151,10 @@ nav {
   z-index: -1;
 }
 
-.center {
-  position: relative;
-  margin-top: 20px;
-  padding: 0 10px;
-}
-
 .welcome h1 {
+  position: relative;
   opacity: 0.8;
   color: #dc2f2f;
-  font-size: 2rem;
 }
 
 /* Event Locations */
