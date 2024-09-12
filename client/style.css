@@ -163,11 +163,11 @@ nav {
 
 h1 {
   font-size: 5rem;
-  font-weight: bold; 
-  color: transparent; 
+  font-weight: bold;
+  color: transparent;
   -webkit-text-stroke: 2px rgb(252, 80, 49);
-  background-clip: text; 
-  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 /* Event Locations */
@@ -765,12 +765,20 @@ footer {
   gap: 20px;
 }
 .bandDiv h2 {
-  font-size: 2vh;
+  font-size: 3vh;
+  font-family: "Oswald", sans-serif;
 }
 .bandDiv p,
 a {
-  font-size: 1vh;
+  font-size: 2vh;
+  font-family: "Oswald", sans-serif;
 }
 #eventTitle {
-  font-size: 3vh;
+  font-size: 10vh;
+  font-family: "Oswald", sans-serif;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
+}
+.event_locations {
+  background-image: url("./Assets/guitarist.webp");
+  background-size: cover;
 }
