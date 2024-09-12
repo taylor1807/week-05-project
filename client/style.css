@@ -173,20 +173,35 @@ nav {
 /* About Us Section Styles */
 .about {
   position: relative;
-
   min-height: 100vh;
-  background: url("/Assets/Vibelibne-Logo.webp") no-repeat center center;
-  background-size: cover;
-
+  background-color: #333;
   color: #fff;
-  text-align: left;
+  text-align: center;
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  background: url("/Assets/Vibelibne-Logo.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 25, 25, 0.5);
+  z-index: 1; 
+}
 .about-content {
-  margin: 2px;
+  position: relative;
+  z-index: 2; 
+  margin: 0 auto;
   padding: 20px;
+  max-width: 100%;
   border-radius: 5px;
 }
 
@@ -212,12 +227,71 @@ nav {
 }
 
 /* gallery locations */
-#thumbnailCont {
+
+/* .gallery-container {
+  padding: 20px;
+  overflow: hidden;
+} */
+
+/* .gallery {
   display: flex;
-  position: absolute;
-  height: 20vh;
-  width: 100%;
-}
+  gap: 10px; 
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  scroll-behavior: smooth; 
+} */
+
+/* .gallery img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+} */
+
+/* Hover Effect */
+/* .gallery img:hover {
+  transform: scale(1.05);
+} */
+
+/* Responsive Media Queries */
+
+/* For Mobile Devices (max-width: 600px) */
+
+/* @media (max-width: 600px) {
+  .gallery {
+    flex-direction: row;
+    overflow-x: scroll; 
+  }
+
+  .gallery img {
+    width: 100vw; 
+    flex-shrink: 0; 
+  }
+} */
+
+/* Tablets and small devices (min-width: 601px and max-width: 1023px) */
+/* @media (min-width: 601px) and (max-width: 1023px) {
+  .gallery img {
+    width: 200px; 
+  }
+} */
+
+/* Laptops and desktops (min-width: 1024px) */
+/* @media (min-width: 1024px) {
+  .gallery img {
+    width: 150px; 
+  }
+} */
+
+/* Large desktops (min-width: 1440px) */
+/* @media (min-width: 1440px) {
+  .gallery img {
+    width: 180px; 
+  }
+} */
+
+
 
 #backButton {
   display: flex;
@@ -501,6 +575,23 @@ footer {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
   }
+  /* about us Media for Mobile*/
+  .about {
+    background-size: cover;
+    padding: 10px;
+  }
+
+  .about h2 {
+    font-size: 1.8rem;
+  }
+
+  .about p {
+    font-size: 0.9rem;
+  }
+
+  .about-content {
+    padding: 15px;
+  }
 }
 
 /* Tablets in landscape mode and larger (min-width: 768px) */
@@ -540,6 +631,23 @@ footer {
     bottom: 20px; /* Adjusted bottom spacing */
     max-height: 50vh;
   }
+  /*about us Media for Tablet */
+  .about {
+    padding: 20px;
+  }
+
+  .about h2 {
+    font-size: 2.2rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    padding: 20px;
+    max-width: 90%;
+  }
 }
 
 /* Laptops and desktops (min-width: 1024px) */
@@ -576,6 +684,25 @@ footer {
     max-width: 350px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
   }
+   /*about us Media for Laptop and PC*/
+  .about {
+    padding: 60px;
+  }
+
+  .about h2 {
+    font-size: 3rem;
+  }
+
+  .about p {
+    font-size: 1.3rem;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    padding: 40px;
+    max-width: 80%;
+  }
 }
 
 /* Large desktops (min-width: 1440px) */
@@ -600,5 +727,24 @@ footer {
     width: 70%;
     max-width: 400px; /* Further increased max-width for desktops */
     bottom: 30px; /* Adjusted bottom spacing */
+  }
+  /*about us Media for Large screen*/
+  .about {
+    padding: 80px;
+  }
+
+  .about h2 {
+    font-size: 3.5rem;
+  }
+
+  .about p {
+    font-size: 1.5rem;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    padding: 50px;
+    max-width: 70%;
   }
 }

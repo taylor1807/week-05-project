@@ -43,7 +43,7 @@ function addThumbnails() {
     }
 )}
 
-addThumbnails()
+// addThumbnails()
 
 function nextImage() {
     if (currentIndex < images.length - 1) {
