@@ -26,7 +26,6 @@ const galleryLocations = [
   },
 ];
 
-
 let currentIndex = 0;
 const mainImage = document.getElementById("mainImage");
 const thumbnailCont = document.getElementById("thumbnailCont");
@@ -43,7 +42,8 @@ function nextImage() {
 }
 
 function backImage() {
-  currentIndex = (currentIndex - 1 + galleryLocations.length) % galleryLocations.length;
+  currentIndex =
+    (currentIndex - 1 + galleryLocations.length) % galleryLocations.length;
   addFullSizeImage(galleryLocations[currentIndex]);
 }
 
@@ -66,8 +66,6 @@ function addThumbnails() {
 
 addThumbnails();
 
-
-
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
 
@@ -78,7 +76,9 @@ async function getMessages() {
     );
     if (!response.ok) throw new Error("Network response was not ok");
     const data = await response.json();
-    console.log(data);
+    // sort the data by the id so earlier id is first
+    // if you want to swap order sub b from a
+    console.log(data.sort((a, b) => a.id - b.id));
     messageBoardContainer.innerHTML = "";
     data.forEach(function (message) {
       const messageContainer = document.createElement("div");

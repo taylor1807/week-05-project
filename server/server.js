@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
@@ -17,7 +17,9 @@ app.get("/", function (request, response) {
 });
 
 app.get("/messages", async function (request, response) {
-  const messages = await db.query("SELECT * FROM messages");
+  const messages = await db.query(
+    "SELECT * FROM messages ORDER BY created_at DESC"
+  );
   response.json(messages.rows);
 });
 
