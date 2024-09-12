@@ -47,7 +47,6 @@ const thumbnailCont = document.getElementById("thumbnailCont");
 
 // addThumbnails()
 
-
 function nextImage() {
   if (currentIndex < images.length - 1) {
     currentIndex += 1;
@@ -186,14 +185,14 @@ async function handleDelete(messageId) {
 form.addEventListener("submit", handlePostMessage);
 
 //
-function toggleMenu() {
-  const menu = document.getElementById("nav-links");
-  if (menu) {
-    menu.classList.toggle("active");
-  } else {
-    console.error("Menu element not found");
-  }
-}
+
+const burger = document.getElementById("burger");
+const menu = document.getElementById("nav-links");
+
+// Add event listener to the burger icon
+burger.addEventListener("click", function () {
+  menu.classList.toggle("active");
+});
 
 // Added date formatting functions - COMMIT
 function formatDate(dateString) {
