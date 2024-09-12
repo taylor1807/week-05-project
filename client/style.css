@@ -20,7 +20,6 @@ body {
 
 /*! Header section: */
 header {
-  display: flex;
   position: sticky;
   color: #fff;
   display: flex;
@@ -163,11 +162,11 @@ nav {
 
 h1 {
   font-size: 5rem;
-  font-weight: bold; 
-  color: transparent; 
+  font-weight: bold;
+  color: transparent;
   -webkit-text-stroke: 2px rgb(252, 80, 49);
-  background-clip: text; 
-  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 /* Event Locations */
@@ -720,45 +719,45 @@ footer {
 @media (min-width: 1440px) {
   .logo {
     width: 140px;
-
-    .welcome h1 {
-      font-size: 4rem;
-    }
-
-    .event_locations h2 {
-      font-size: 3rem;
-    }
-
-    .burger {
-      display: none;
-    }
-
-    #messageBoardContainer {
-      width: 70%;
-      max-width: 400px;
-      bottom: 30px;
-    }
   }
-  /*about us Media for Large screen*/
-  .about {
-    padding: 80px;
+  .welcome h1 {
+    font-size: 4rem;
   }
 
-  .about h2 {
-    font-size: 3.5rem;
+  .event_locations h2 {
+    font-size: 3rem;
   }
 
-  .about p {
-    font-size: 1.5rem;
-    max-width: 50%;
-    margin: 0 auto;
+  .burgerContainer {
+    display: none;
   }
 
-  .about-content {
-    padding: 50px;
-    max-width: 70%;
+  #messageBoardContainer {
+    width: 70%;
+    max-width: 400px;
+    bottom: 30px;
   }
 }
+/*about us Media for Large screen*/
+.about {
+  padding: 80px;
+}
+
+.about h2 {
+  font-size: 3.5rem;
+}
+
+.about p {
+  font-size: 1.5rem;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding: 50px;
+  max-width: 70%;
+}
+
 #band-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -773,4 +772,8 @@ a {
 }
 #eventTitle {
   font-size: 3vh;
+}
+
+.navbar {
+  padding: 0;
 }
