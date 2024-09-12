@@ -34,7 +34,7 @@ let galleryLocations = [
 let currentIndex = 0;
 const thumbnailCont = document.getElementById("thumbnailCont");
 
-function addThumbnails() {
+/*function addThumbnails() {
   galleryLocations.forEach((image) => {
     let imageElement = document.createElement("img");
     imageElement.src = image.url;
@@ -42,11 +42,9 @@ function addThumbnails() {
     imageElement.srcset = image.srcset;
     imageElement.addEventListener("click", function () {
       console.log(`Clicked on ${image.alt}`);
-    });
+    }); //
 
-
-// addThumbnails()
-
+     addThumbnails()*/
 
 function nextImage() {
   if (currentIndex < images.length - 1) {
