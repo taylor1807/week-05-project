@@ -89,7 +89,9 @@ const form = document.getElementById("messageForm");
 
 async function getMessages() {
   {
-    const response = await fetch("http://localhost:8080/messages");
+    const response = await fetch(
+      "https://week-05-project.onrender.com/messages"
+    );
     if (!response.ok) throw new Error("Network response was not ok");
     const data = await response.json();
     console.log(data);
@@ -145,7 +147,7 @@ async function handlePostMessage(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
   {
-    await fetch("http://localhost:8080/messages", {
+    await fetch("https://week-05-project.onrender.com/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -159,25 +161,34 @@ async function handlePostMessage(event) {
 
 async function handleLike(messageId) {
   {
-    await fetch(`http://localhost:8080/messages/${messageId}/like`, {
-      method: "POST",
-    });
+    await fetch(
+      `https://week-05-project.onrender.com/messages/${messageId}/like`,
+      {
+        method: "POST",
+      }
+    );
     getMessages();
   }
 }
 
 async function handleDislike(messageId) {
   {
-    await fetch(`http://localhost:8080/messages/${messageId}/dislike`, {
-      method: "POST",
-    });
+    await fetch(
+      `https://week-05-project.onrender.com/messages/${messageId}/dislike`,
+      {
+        method: "POST",
+      }
+    );
     getMessages();
   }
 }
 async function handleDelete(messageId) {
-  const response = await fetch(`http://localhost:8080/messages/${messageId}`, {
-    method: "DELETE",
-  });
+  const response = await fetch(
+    `https://week-05-project.onrender.com/messages/${messageId}`,
+    {
+      method: "DELETE",
+    }
+  );
   if (response.ok) {
     getMessages();
   }
@@ -205,7 +216,9 @@ function formatDate(dateString) {
 }
 //adding elements from db2 to the dom
 async function fetchBandInfo() {
-  const response = await fetch("http://localhost:8080/band_info");
+  const response = await fetch(
+    "https://week-05-project.onrender.com/band_info"
+  );
   const data = await response.json();
   displayBandInfo(data);
 }
