@@ -34,19 +34,18 @@ let galleryLocations = [
 let currentIndex = 0;
 const thumbnailCont = document.getElementById("thumbnailCont");
 
-function addThumbnails() {
-  galleryLocations.forEach((image) => {
-    let imageElement = document.createElement("img");
-    imageElement.src = image.url;
-    imageElement.alt = image.alt;
-    imageElement.srcset = image.srcset;
-    imageElement.addEventListener("click", function () {
-      console.log(`Clicked on ${image.alt}`);
-    });
-
+// function addThumbnails() {
+//   galleryLocations.forEach((image) => {
+//     let imageElement = document.createElement("img");
+//     imageElement.src = image.url;
+//     imageElement.alt = image.alt;
+//     imageElement.srcset = image.srcset;
+//     imageElement.addEventListener("click", function () {
+//       console.log(`Clicked on ${image.alt}`);
+//     });
+//   }
 
 // addThumbnails()
-
 
 function nextImage() {
   if (currentIndex < images.length - 1) {
