@@ -3,19 +3,19 @@ const galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
     srcset:
-      "Assets/AOchildish-390.webp 390w, .Assets/AOchildish-760.webp 760w, .Assets/AOchildish-1020.webp 1020w, .Assets/AOchildish-1440.webp 1440w",
+      "Assets/AOchildish-390.webp 390w, Assets/AOchildish-760.webp 760w, Assets/AOchildish-1020.webp 1020w, Assets/AOchildish-1440.webp 1440w",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
   },
   {
     url: "Assets/cooplivejj.webp",
     srcset:
-      "Assets/cooplivejj-390.webp 390w, .Assets/cooplivejj-760.webp 760w, .Assets/cooplivejj-1020.webp 1020w, .Assets/cooplivejj-1440.webp 1440w",
+      "Assets/cooplivejj-390.webp 390w, Assets/cooplivejj-760.webp 760w, Assets/cooplivejj-1020.webp 1020w, Assets/cooplivejj-1440.webp 1440w",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
   },
   {
     url: "Assets/wembleydua.webp",
     srcset:
-      "Assets/wembleydua-390.webp 390w, .Assets/wembleydua-760.webp 760w, .Assets/wembleydua-1020.webp 1020w, .Assets/wembleydua1440.webp 1440w",
+      "Assets/wembleydua-390.webp 390w, Assets/wembleydua-760.webp 760w, Assets/wembleydua-1020.webp 1020w, Assets/wembleydua1440.webp 1440w",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
   },
   {
