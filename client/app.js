@@ -1,70 +1,73 @@
-console.log('test')
+console.log("test");
 // Array of gallery locations
 //!_______________________________________________________________________________________________________________________________
 let galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
-    srcset: "Assets/AOchildish-390.webp 390w, Assets/AOchildish-760.webp 760w, Assets/AOchildish-1020.webp 1020w, Assets/AOchildish-1440.webp 1440w",
+    srcset:
+      "Assets/AOchildish-390.webp 390w, Assets/AOchildish-760.webp 760w, Assets/AOchildish-1020.webp 1020w, Assets/AOchildish-1440.webp 1440w",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
   },
 
   {
     url: "Assets/cooplivejj.webp",
-    srcset: "Assets/cooplivejj-390.webp 390w, Assets/cooplivejj-760.webp 760w, Assets/cooplivejj-1020.webp 1020w, Assets/cooplivejj-1440.webp 1440w",
+    srcset:
+      "Assets/cooplivejj-390.webp 390w, Assets/cooplivejj-760.webp 760w, Assets/cooplivejj-1020.webp 1020w, Assets/cooplivejj-1440.webp 1440w",
     alt: "This is an image of the coop live arena in Manchester, where Janet Jackson will be playing",
   },
   {
     url: "Assets/wembleydua.webp",
-    srcset: "Assets/wembleydua-390.webp 390w, Assets/wembleydua-760.webp 760w, Assets/wembleydua-1020.webp 1020w, Assets/wembleydua1440.webp 1440w",
+    srcset:
+      "Assets/wembleydua-390.webp 390w, Assets/wembleydua-760.webp 760w, Assets/wembleydua-1020.webp 1020w, Assets/wembleydua1440.webp 1440w",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
   },
 
   {
     url: "Assets/o2londonlinkinpark.webp",
-    srcset: "Assets/o2londonlinkinpark-390.webp 390w, Assets/o2londonlinkinpark-760.webp 760w, Assets/o2londonlinkinpark-1020.webp 1020w, Assets/o2londonlinkinpark-1440.webp 1440w",
+    srcset:
+      "Assets/o2londonlinkinpark-390.webp 390w, Assets/o2londonlinkinpark-760.webp 760w, Assets/o2londonlinkinpark-1020.webp 1020w, Assets/o2londonlinkinpark-1440.webp 1440w",
     alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
   },
 ];
 
-//!function for gallerylocations images:
+// !function for gallerylocations images:
 let currentIndex = 0;
-const thumbnailCont = document.getElementById("thumbnailCont")
+const thumbnailCont = document.getElementById("thumbnailCont");
 
 function addThumbnails() {
-    galleryLocations.forEach((image) => {
-        let imageElement = document.createElement("img");
-        imageElement.src = image.url;
-        imageElement.alt = image.alt;
-        imageElement.srcset = image.srcset;
-        imageElement.addEventListener('click', function() {
-        console.log(`Clicked on ${image.alt}`)
+  galleryLocations.forEach((image) => {
+    let imageElement = document.createElement("img");
+    imageElement.src = image.url;
+    imageElement.alt = image.alt;
+    imageElement.srcset = image.srcset;
+    imageElement.addEventListener("click", function () {
+      console.log(`Clicked on ${image.alt}`);
     });
-    thumbnailCont.appendChild(imageElement);
-    }
-)}
+
 
 // addThumbnails()
 
+
 function nextImage() {
-    if (currentIndex < images.length - 1) {
+  if (currentIndex < images.length - 1) {
     currentIndex += 1;
-    } else {
-    currentIndex = 0
-    }
-    addFullSizeImage(images[currentIndex]);
+  } else {
+    currentIndex = 0;
+  }
+  addFullSizeImage(images[currentIndex]);
 }
 
 function backImage() {
-    if (currentIndex > 0) {
+  if (currentIndex > 0) {
     currentIndex--;
-    } else {
-    currentIndex = images.length -1;
-    }
+  } else {
+    currentIndex = images.length - 1;
+  }
 }
 
-  //!function for next and back buttons for gallerylocations images:
-  document.getElementById("back")?.addEventListener("click", backImage);
-  document.getElementById("next")?.addEventListener("click", nextImage);
+//!function for next and back buttons for gallerylocations images:
+document.getElementById("back")?.addEventListener("click", backImage);
+document.getElementById("next")?.addEventListener("click", nextImage);
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft") {
@@ -73,7 +76,6 @@ document.addEventListener("keydown", function (event) {
     nextImage();
   }
 });
-
 
 //!_____________________________________________________________________________________________________
 
@@ -87,9 +89,9 @@ const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
 
 async function getMessages() {
-  try {
+  {
     const response = await fetch("http://localhost:8080/messages");
-    if (!response.ok) throw new Error('Network response was not ok');
+    if (!response.ok) throw new Error("Network response was not ok");
     const data = await response.json();
     console.log(data);
     messageBoardContainer.innerHTML = "";
@@ -119,16 +121,21 @@ async function getMessages() {
       dislikeButton.addEventListener("click", function () {
         handleDislike(message.id);
       });
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("deleteBtn");
+      deleteButton.textContent = "x";
+      deleteButton.addEventListener("click", function () {
+        handleDelete(message.id);
+      });
 
       messageContainer.appendChild(messageInsert);
       messageContainer.appendChild(likeCount);
       messageContainer.appendChild(likeButton);
       messageContainer.appendChild(dislikeCount);
       messageContainer.appendChild(dislikeButton);
+      messageContainer.appendChild(deleteButton);
       messageBoardContainer.appendChild(messageContainer);
     });
-  } catch (error) {
-    console.error('Failed to fetch messages:', error);
   }
 }
 
@@ -138,7 +145,7 @@ async function handlePostMessage(event) {
   event.preventDefault();
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
-  try {
+  {
     await fetch("http://localhost:8080/messages", {
       method: "POST",
       headers: {
@@ -148,35 +155,37 @@ async function handlePostMessage(event) {
     });
     form.reset();
     getMessages();
-  } catch (error) {
-    console.error('Failed to post message:', error);
   }
 }
 
 async function handleLike(messageId) {
-  try {
+  {
     await fetch(`http://localhost:8080/messages/${messageId}/like`, {
       method: "POST",
     });
     getMessages();
-  } catch (error) {
-    console.error('Failed to like message:', error);
   }
 }
 
 async function handleDislike(messageId) {
-  try {
+  {
     await fetch(`http://localhost:8080/messages/${messageId}/dislike`, {
       method: "POST",
     });
     getMessages();
-  } catch (error) {
-    console.error('Failed to dislike message:', error);
   }
 }
+async function handleDelete(messageId) {
+  const response = await fetch(`http://localhost:8080/messages/${messageId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    getMessages();
+  }
+}
+form.addEventListener("submit", handlePostMessage);
 
-form?.addEventListener("submit", handlePostMessage);
-
+//
 function toggleMenu() {
   const menu = document.getElementById("nav-links");
   if (menu) {
@@ -189,10 +198,10 @@ function toggleMenu() {
 // Added date formatting functions - COMMIT
 function formatDate(dateString) {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-GB', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return date.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 //adding elements from db2 to the dom
@@ -216,16 +225,16 @@ function displayBandInfo(bands) {
     venueName.textContent = `Venue: ${band.venue_name}`;
     const formattedEventDate = formatDate(band.event_date); // Format the event date using the formatDate function for UK format
     const eventDate = document.createElement("p");
-    eventDate.textContent = `Date: ${formattedEventDate}`; // Added this 
+    eventDate.textContent = `Date: ${formattedEventDate}`; // Added this
     const eventTime = document.createElement("p");
     eventTime.textContent = `Time: ${band.event_time}`;
     const websiteLink = document.createElement("a");
     websiteLink.href = band.website_url;
     websiteLink.target = "_blank";
-    websiteLink.textContent = "Visit Website";
+    websiteLink.textContent = "Click here for more info and Tickets";
 
     bandDiv.appendChild(bandName); //Added to display band name
-    bandDiv.appendChild(location); //Added to display event location 
+    bandDiv.appendChild(location); //Added to display event location
     bandDiv.appendChild(venueName); //Added to display venue name
     bandDiv.appendChild(eventDate);
     // bandDiv.appendChild(eventTime);
@@ -235,14 +244,4 @@ function displayBandInfo(bands) {
   });
 }
 
- fetchBandInfo();
-
-
-
-
-
-
-
-
-
- 
+fetchBandInfo();
