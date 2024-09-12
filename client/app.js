@@ -47,6 +47,7 @@ const thumbnailCont = document.getElementById("thumbnailCont");
 
 // addThumbnails()
 
+
 function nextImage() {
   if (currentIndex < images.length - 1) {
     currentIndex += 1;
