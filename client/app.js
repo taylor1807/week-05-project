@@ -1,14 +1,11 @@
-console.log("test");
-// Array of gallery locations
-//!_______________________________________________________________________________________________________________________________
-let galleryLocations = [
+// Gallery Locations
+const galleryLocations = [
   {
     url: "Assets/AOchildish.webp",
     srcset:
       "Assets/AOchildish-390.webp 390w, Assets/AOchildish-760.webp 760w, Assets/AOchildish-1020.webp 1020w, Assets/AOchildish-1440.webp 1440w",
     alt: "This is an image of the AO arena in Manchester, where Childish Gambino will be playing",
   },
-
   {
     url: "Assets/cooplivejj.webp",
     srcset:
@@ -21,68 +18,55 @@ let galleryLocations = [
       "Assets/wembleydua-390.webp 390w, Assets/wembleydua-760.webp 760w, Assets/wembleydua-1020.webp 1020w, Assets/wembleydua1440.webp 1440w",
     alt: "This is an image of the Wembley Stadium in London, where Dua Lipa will be playing",
   },
-
   {
     url: "Assets/o2londonlinkinpark.webp",
     srcset:
       "Assets/o2londonlinkinpark-390.webp 390w, Assets/o2londonlinkinpark-760.webp 760w, Assets/o2londonlinkinpark-1020.webp 1020w, Assets/o2londonlinkinpark-1440.webp 1440w",
-    alt: "This is an image of the O2 area in London, where Linkin Park will be playing",
+    alt: "This is an image of the O2 arena in London, where Linkin Park will be playing",
   },
 ];
 
-// !function for gallerylocations images:
+
 let currentIndex = 0;
+const mainImage = document.getElementById("mainImage");
 const thumbnailCont = document.getElementById("thumbnailCont");
 
-// function addThumbnails() {
-//   galleryLocations.forEach((image) => {
-//     let imageElement = document.createElement("img");
-//     imageElement.src = image.url;
-//     imageElement.alt = image.alt;
-//     imageElement.srcset = image.srcset;
-//     imageElement.addEventListener("click", function () {
-//       console.log(`Clicked on ${image.alt}`);
-//     });
-//   }
-
-// addThumbnails()
+function addFullSizeImage(image) {
+  mainImage.src = image.url;
+  mainImage.srcset = image.srcset;
+  mainImage.alt = image.alt;
+}
 
 function nextImage() {
-  if (currentIndex < images.length - 1) {
-    currentIndex += 1;
-  } else {
-    currentIndex = 0;
-  }
-  addFullSizeImage(images[currentIndex]);
+  currentIndex = (currentIndex + 1) % galleryLocations.length;
+  addFullSizeImage(galleryLocations[currentIndex]);
 }
 
 function backImage() {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = images.length - 1;
-  }
+  currentIndex = (currentIndex - 1 + galleryLocations.length) % galleryLocations.length;
+  addFullSizeImage(galleryLocations[currentIndex]);
 }
 
-//!function for next and back buttons for gallerylocations images:
-document.getElementById("back")?.addEventListener("click", backImage);
-document.getElementById("next")?.addEventListener("click", nextImage);
+document.getElementById("back").addEventListener("click", backImage);
+document.getElementById("next").addEventListener("click", nextImage);
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowLeft") {
-    backImage();
-  } else if (event.key === "ArrowRight") {
-    nextImage();
-  }
-});
-
-//!_____________________________________________________________________________________________________
-
-// I removed the formatting Date and Time Function from here
-
-function addFullSizeImage(image) {
-  // Implement adding full-size image functionality here
+addFullSizeImage(galleryLocations[currentIndex]);
+function addThumbnails() {
+  galleryLocations.forEach((image, index) => {
+    let imageElement = document.createElement("img");
+    imageElement.src = image.url;
+    imageElement.alt = image.alt;
+    imageElement.addEventListener("click", function () {
+      currentIndex = index;
+      addFullSizeImage(galleryLocations[currentIndex]);
+    });
+    thumbnailCont.appendChild(imageElement);
+  });
 }
+
+addThumbnails();
+
+
 
 const messageBoardContainer = document.getElementById("messageBoardContainer");
 const form = document.getElementById("messageForm");
