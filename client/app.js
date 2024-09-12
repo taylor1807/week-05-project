@@ -21,7 +21,7 @@ const galleryLocations = [
   {
     url: "Assets/o2londonlinkinpark.webp",
     srcset:
-      "Assets/o2londonlinkinpark-390.webp 390w, .Assets/o2londonlinkinpark-760.webp 760w, .Assets/o2londonlinkinpark-1020.webp 1020w, .Assets/o2londonlinkinpark-1440.webp 1440w",
+      "Assets/o2londonlinkinpark-390.webp 390w, Assets/o2londonlinkinpark-760.webp 760w, Assets/o2londonlinkinpark-1020.webp 1020w, Assets/o2londonlinkinpark-1440.webp 1440w",
     alt: "This is an image of the O2 arena in London, where Linkin Park will be playing",
   },
 ];
