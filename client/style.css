@@ -755,3 +755,13 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.bandDiv h2 {
+  font-size: 2vh;
+}
+.bandDiv p,
+a {
+  font-size: 1vh;
+}
+#eventTitle {
+  font-size: 3vh;
+}
