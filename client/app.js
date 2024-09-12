@@ -44,12 +44,9 @@ function addThumbnails() {
       console.log(`Clicked on ${image.alt}`);
     });
 
-    // thumbnailCont.appendChild(imageElement);
 
-  });
-}
+// addThumbnails()
 
-addThumbnails();
 
 function nextImage() {
   if (currentIndex < images.length - 1) {
