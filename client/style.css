@@ -20,7 +20,6 @@ body {
 
 /*! Header section: */
 header {
-  display: flex;
   position: sticky;
   color: #fff;
   display: flex;
@@ -60,26 +59,26 @@ header .burgerContainer {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
   background-color: #333;
   color: white;
   border-radius: 20px;
 }
 
 .burger {
-  display: none;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .line {
-  height: 3px;
-  width: 25px;
+  height: 0.4vh;
+  width: 6vw;
   background-color: white;
-  margin: 4px 0;
+  margin: 4px;
 }
 
 .nav-links {
@@ -150,9 +149,21 @@ nav {
 
 /*! Welcome Section */
 .welcomepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   text-align: center;
   width: 100%;
   height: 100vh;
+}
+
+.welcomepage .welcometext {
+  display: flex;
+  position: relative;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
 }
 
 .center {
@@ -163,11 +174,11 @@ nav {
 
 h1 {
   font-size: 5rem;
-  font-weight: bold; 
-  color: transparent; 
+  font-weight: bold;
+  color: transparent;
   -webkit-text-stroke: 2px rgb(252, 80, 49);
-  background-clip: text; 
-  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 /* Event Locations */
@@ -420,6 +431,15 @@ h1 {
   font-family: "Poppins", sans-serif;
 }
 
+.messageBoardInputCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
 #messageBoardContainer h3 {
   margin: 0 0 1rem 0;
   font-size: 1.2rem;
@@ -454,6 +474,7 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
   font-family: "Poppins", sans-serif;
+  left: 50%;
 }
 
 .message_form h2 {
@@ -803,57 +824,69 @@ footer {
 @media (min-width: 1440px) {
   .logo {
     width: 140px;
-
-    .welcome h1 {
-      font-size: 4rem;
-    }
-
-    .event_locations h2 {
-      font-size: 3rem;
-    }
-
-    .burger {
-      display: none;
-    }
-
-    #messageBoardContainer {
-      width: 70%;
-      max-width: 400px;
-      bottom: 30px;
-    }
   }
-  /*about us Media for Large screen*/
-  .about {
-    padding: 80px;
+  .welcome h1 {
+    font-size: 4rem;
   }
 
-  .about h2 {
-    font-size: 3.5rem;
+  .event_locations h2 {
+    font-size: 3rem;
   }
 
-  .about p {
-    font-size: 1.5rem;
-    max-width: 50%;
-    margin: 0 auto;
+  .burgerContainer {
+    display: none;
   }
 
-  .about-content {
-    padding: 50px;
-    max-width: 70%;
+  #messageBoardContainer {
+    width: 70%;
+    max-width: 400px;
+    bottom: 30px;
   }
 }
+/*about us Media for Large screen*/
+.about {
+  padding: 80px;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+}
+
+.about p {
+  font-size: 1.5rem;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding: 50px;
+  max-width: 70%;
+}
+
 #band-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 .bandDiv h2 {
-  font-size: 2vh;
+  font-size: 3vh;
+  font-family: "Oswald", sans-serif;
 }
 .bandDiv p,
 a {
-  font-size: 1vh;
+  font-size: 2vh;
+  font-family: "Oswald", sans-serif;
 }
 #eventTitle {
-  font-size: 3vh;
+  font-size: 10vh;
+  font-family: "Oswald", sans-serif;
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px blue;
+}
+.event_locations {
+  background-image: url("./Assets/guitarist.webp");
+  background-size: cover;
+}
+
+.navbar {
+  padding: 0;
 }
