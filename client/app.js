@@ -228,7 +228,7 @@ function displayBandInfo(bands) {
     bandDiv.appendChild(location); //Added to display event location 
     bandDiv.appendChild(venueName); //Added to display venue name
     bandDiv.appendChild(eventDate);
-    bandDiv.appendChild(eventTime);
+    // bandDiv.appendChild(eventTime);
     bandDiv.appendChild(websiteLink);
 
     bandContainer.appendChild(bandDiv);
